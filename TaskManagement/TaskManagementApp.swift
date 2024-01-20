@@ -32,4 +32,7 @@ struct TaskManagementApp: App {
         }
         .modelContainer(self.container)
     }
+    init() {
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
+    }
 }

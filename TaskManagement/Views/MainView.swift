@@ -13,8 +13,14 @@ struct MainView: View {
     @Environment(\.modelContext) var modelContext
     @State private var path = [TaskM]()
     
+    
+    
+    
     var body: some View {
         NavigationStack(path: $path) {
+            VStack {
+                
+            }
             TaskListingView()
 //                .navigationDestination(for: TaskM.self, destination: EditTaskView.init)
                 .navigationDestination(for: TaskM.self, destination: { taskm in
@@ -23,7 +29,9 @@ struct MainView: View {
                 .toolbar {
                     Button("New Task", action: addTask)
                 }
+                
         }
+        
     }
     func addTask() {
         let task = TaskM()
@@ -35,4 +43,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .modelContainer(DataController.previewContainer)
 }

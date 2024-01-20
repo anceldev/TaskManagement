@@ -11,6 +11,12 @@ import SwiftData
 struct EditTaskView: View {
     @Bindable var taskm: TaskM
     @State var step = Step()
+    @State private var selectedColor = Color.white
+    
+    var steps: [Step] {
+        if let steps = taskm.steps { return steps }
+        else { return [] }
+    }
 
     var body: some View {
         Form {
@@ -28,6 +34,10 @@ struct EditTaskView: View {
                         set: { taskm.expireDate = $0 }),
                        in: .now...,
                        displayedComponents: .date)
+            ColorPicker("Select a color", selection: $selectedColor)
+                .onChange(of: selectedColor) {
+                    taskm.colorHex = selectedColor.toHex()
+                }
             Section {
                 HStack {
                     TextField("Step", text: $step.stepDescription)
@@ -39,6 +49,13 @@ struct EditTaskView: View {
                     .buttonStyle(.borderedProminent)
                 }
             }
+            Section {
+                List {
+                    ForEach(steps) { step in
+                        Text(step.stepDescription)
+                    }
+                }
+            }
         }
     }
     private func addStep() {
@@ -48,14 +65,7 @@ struct EditTaskView: View {
 }
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: TaskM.self, configurations: config)
-        let example = TaskM(name: "Example task", taskDescription: "Description of example task", priority: .normal, expireDate: .now, progress: 0, steps: [])
-        return EditTaskView(taskm: example)
-            .modelContainer(container)
-    }
-    catch {
-        fatalError("Failed to create model container for preview")
-    }
+    let example = TaskM(name: "Example task", taskDescription: "Description of example task", priority: .normal, expireDate: .now, progress: 0, steps: [])
+    return EditTaskView(taskm: example)
+        .modelContainer(DataController.previewContainer)
 }

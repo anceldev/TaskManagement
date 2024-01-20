@@ -15,14 +15,17 @@ class TaskM {
     var priority: Priority
     var expireDate: Date?
     var progress: Int
+    var colorHex: String
     @Relationship(deleteRule: .cascade, inverse: \Step.taskm) var steps: [Step]?
-
-    init(name: String = "", taskDescription: String = "", priority: Priority = .normal, expireDate: Date? = .now, progress: Int = 0, steps: [Step]? = []) {
+    
+    
+    init(name: String = "", taskDescription: String = "", priority: Priority = .normal, expireDate: Date? = .now, progress: Int = 0, colorHex: String = "", steps: [Step]? = []) {
         self.name = name
         self.taskDescription = taskDescription
         self.priority = priority
         self.expireDate = expireDate
         self.progress = progress
         self.steps = steps
+        self.colorHex = colorHex
     }
 }
