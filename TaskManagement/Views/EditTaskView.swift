@@ -59,6 +59,7 @@ struct EditTaskView: View {
         }
     }
     private func addStep() {
+        if step.stepDescription.isEmpty { return }
         taskm.steps?.append(step)
         step = Step()
     }

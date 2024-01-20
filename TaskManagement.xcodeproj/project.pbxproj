@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42CEF082B5C808D009713C2 /* TaskDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CEF072B5C808D009713C2 /* TaskDetails.swift */; };
 		B49FE8022B5AABB50040247D /* TaskManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8012B5AABB50040247D /* TaskManagementApp.swift */; };
 		B49FE8042B5AABB50040247D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8032B5AABB50040247D /* MainView.swift */; };
 		B49FE8062B5AABB60040247D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B49FE8052B5AABB60040247D /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B42CEF072B5C808D009713C2 /* TaskDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetails.swift; sourceTree = "<group>"; };
 		B49FE7FE2B5AABB50040247D /* TaskManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49FE8012B5AABB50040247D /* TaskManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagementApp.swift; sourceTree = "<group>"; };
 		B49FE8032B5AABB50040247D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				B49FE8032B5AABB50040247D /* MainView.swift */,
 				B49FE8212B5AEC9B0040247D /* TaskListingView.swift */,
 				B49FE8232B5AEE2F0040247D /* EditTaskView.swift */,
+				B42CEF072B5C808D009713C2 /* TaskDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42CEF082B5C808D009713C2 /* TaskDetails.swift in Sources */,
 				B49FE8132B5AACBF0040247D /* TaskM.swift in Sources */,
 				B49FE8042B5AABB50040247D /* MainView.swift in Sources */,
 				B49FE8222B5AEC9B0040247D /* TaskListingView.swift in Sources */,
