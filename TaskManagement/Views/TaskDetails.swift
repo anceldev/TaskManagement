@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct TaskDetails: View {
-    let taskm: TaskM
-    @Binding var path: [TaskM]
+    let taskm: Project
+    @Binding var path: [Project]
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    @State var path = [TaskM]()
-    let taskm = TaskM(name: "Test Task", taskDescription: "Description of test task", priority: .normal, expireDate: .now)
+    @State var path = [Project]()
+    let taskm = Project(title: "Test Task", proDescription: "Description of test task", priority: .normal, deadline: .now)
     return TaskDetails(taskm: taskm, path: $path)
 }

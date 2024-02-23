@@ -11,29 +11,34 @@ import SwiftData
 struct MainView: View {
     
     @Environment(\.modelContext) var modelContext
-    @State private var path = [TaskM]()
+    @Query(sort: \Project.deadline, order: .forward) var projects: [Project]
+    @State private var path = [Project]()
 
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                
-            }
-            TaskListingView(path: $path)
-//                .navigationDestination(for: TaskM.self, destination: { taskm in
-//                    EditTaskView(taskm: taskm)
-//                })
-                .navigationDestination(for: TaskM.self, destination: { taskm in
-                    TaskDetails(taskm: taskm, path: $path)
-                })
-                .toolbar {
-                    Button("New Task", action: addTask)
+                HStack {
+                    Text("Today's Tasks")
+                        .foregroundStyle(.white).bold()
                 }
-                
+                TaskListingView()
+                    .navigationDestination(for: Project.self) { project in
+                        EditTaskView(project: project, path: $path)
+                    }
+            }
+            .toolbar {
+                Button(action: addTask, label: {
+                    Image(systemName: "plus")
+                        .foregroundStyle(.white)
+                })
+            }
+            .background(.tmBlack)
+            .navigationTitle("Today taks's")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        
     }
     func addTask() {
-        let task = TaskM()
+        let task = Project()
         modelContext.insert(task)
         path = [task]
     }

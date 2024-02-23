@@ -16,10 +16,10 @@ class DataController {
     static let previewContainer: ModelContainer = {
         do {
             let config = ModelConfiguration(isStoredInMemoryOnly: true)
-            let container = try ModelContainer(for: TaskM.self, Step.self, configurations: config)
+            let container = try ModelContainer(for: Project.self, Taskp.self, configurations: config)
             
             for i in 1...4 {
-                let taskm = TaskM(name: "Task Nº: \(i)", taskDescription: "This is the description for task number \(i)")
+                let taskm = Project(title: "Project Nº: \(i)", proDescription: "This is the description for project number \(i)")
                 container.mainContext.insert(taskm)
             }
             return container
