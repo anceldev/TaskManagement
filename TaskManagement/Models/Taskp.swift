@@ -12,10 +12,13 @@ import SwiftData
 class Taskp {
     var taskDescription: String
     var completed: Bool
-    var taskm: Project?
+    var user: User?
+    var project: Project?
     
-    init(taskDescription: String = "", completed: Bool = false, taskM: Project? = nil) {
+    init(taskDescription: String = "", completed: Bool = false, user: User? = nil, project: Project? = nil) {
         self.taskDescription = taskDescription
         self.completed = completed
+        self.user = user
+        self.project = project
     }
 }

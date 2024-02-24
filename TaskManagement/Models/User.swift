@@ -13,11 +13,12 @@ class User {
     var name: String
     var email: String
     var avatar: String
-    
-    
-    init(name: String = "", email: String = "", avatar: String = "") {
+    var projects: [Project] // Many to many relationship with Project model
+
+    init(name: String = "", email: String = "", avatar: String = "", projects: [Project] = []) {
         self.name = name
         self.email = email
         self.avatar = avatar
+        self.projects = projects
     }
 }
