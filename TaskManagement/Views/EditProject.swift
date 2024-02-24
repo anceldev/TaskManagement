@@ -27,6 +27,7 @@ struct EditProject: View {
     @State private var editedProject: Project
     @State private var editProject: Bool
     @State private var showConfirmationDialog = false
+    @State private var showEmptyTitleDialog = false
     
     init(project: Project, editProject: Bool = false) {
         self.project = project
@@ -64,26 +65,41 @@ struct EditProject: View {
                         .disabled(!editProject)
                     if showSaveButton {
                         withAnimation {
-                            Button(action: saveChanges, label: {
+                            Button{
+                                copyAttributes(from: editedProject, to: project)
+                            } label: {
                                 Label("Save", systemImage: "opticaldiscdrive.fill")
-                            })
+                            }
                             .buttonStyle(.borderedProminent)
                         }
                     }
+                    Spacer()
                     Button("Delete", role: .destructive) {
                         showConfirmationDialog.toggle()
                     }
                     .buttonStyle(.borderedProminent)
-                    .confirmationDialog("You want to delete the project?", isPresented: $showConfirmationDialog, titleVisibility: .visible, actions: {
-                        Button("Yes", role: .destructive) {
-                            deleteProject()
-                        }
-                        Button("Cancel", role: .cancel) {
-                            showConfirmationDialog.toggle()
-                        }
-                    })
                 }
             }
+            .confirmationDialog("You want to delete the project?", isPresented: $showConfirmationDialog, titleVisibility: .visible, actions: {
+                Button("Yes", role: .destructive) {
+//                    deleteProject()
+                    modelContext.delete(project)
+                    dismiss()
+                }
+                Button("Cancel", role: .cancel) {
+                    showConfirmationDialog.toggle()
+                }
+            })
+            .confirmationDialog("Title is required. You want to delete the project?", isPresented: $showEmptyTitleDialog, titleVisibility: .visible, actions: {
+                Button("Yes", role: .destructive) {
+//                    deleteProject()
+                    modelContext.delete(project)
+                    dismiss()
+                }
+                Button("No", role: .cancel) {
+                    print("No action")
+                }
+            })
             .sheet(isPresented: $showAvailableUsers, content: {
                 AvailableUsers(project: project)
             })
@@ -92,9 +108,11 @@ struct EditProject: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         if project.title.isEmpty {
-                            modelContext.delete(project)
+                            showEmptyTitleDialog.toggle()
                         }
-                        dismiss()
+                        else {
+                            dismiss()
+                        }
                     } label: {
                         HStack{
                             Image(systemName: "chevron.backward")
@@ -104,7 +122,7 @@ struct EditProject: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         editProject.toggle()
-                        saveChanges()
+                        copyAttributes(from: editedProject, to: project)
                     } label: {
                         Label("Edit project", systemImage: editProject ? "opticaldiscdrive" : "pencil")
                             .labelStyle(.iconOnly)
@@ -115,13 +133,12 @@ struct EditProject: View {
                         withAnimation {
                             Button {
                                 print("Undo")
-                                //                                copyAttributes()
+                                copyAttributes(from: project, to: editedProject)
                             } label: {
                                 Label("Undo", systemImage: "arrow.uturn.backward.circle")
                                     .labelStyle(.iconOnly)
                             }
                         }
-                        
                     }
                 }
             }
@@ -140,22 +157,14 @@ struct EditProject: View {
         destiny.users = origin.users
         //                editedProject.steps = project.tasks
     }
-    private func saveChanges(){
-        print("Project is: \(project.title)")
-        //        print(project.title)
-        print("edited project is: \(editedProject.title)")
-        //        print(project.title)
-        copyAttributes(from: editedProject, to: project)
-    }
     private func addStep() {
         if step.taskDescription.isEmpty { return }
         project.tasks?.append(step)
         step = Taskp()
     }
-    private func deleteProject(){
-        modelContext.delete(project)
-        dismiss()
-    }
+    //    private func saveChanges(){
+    //        copyAttributes(from: editedProject, to: project)
+    //    }
 }
 
 #Preview {
