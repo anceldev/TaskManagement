@@ -12,3 +12,8 @@ enum Priority: String, Codable, CaseIterable {
     case normal = "Normal"
     case high = "High"
 }
+enum Category: String, Codable, CaseIterable {
+    case cat1 = "Category 1"
+    case cat2 = "Category 2"
+    case cat3 = "Category 3"
+}

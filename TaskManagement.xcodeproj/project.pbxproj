@@ -13,6 +13,7 @@
 		B47D1C4A2B88ED9D005BD386 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C492B88ED9D005BD386 /* Role.swift */; };
 		B47D1C4C2B890751005BD386 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C4B2B890751005BD386 /* File.swift */; };
 		B47D1C4E2B891D7E005BD386 /* AvailableUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C4D2B891D7E005BD386 /* AvailableUsers.swift */; };
+		B4913B4E2B8A51E6004D302A /* EditTaskForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4913B4D2B8A51E6004D302A /* EditTaskForm.swift */; };
 		B49FE8022B5AABB50040247D /* TaskManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8012B5AABB50040247D /* TaskManagementApp.swift */; };
 		B49FE8042B5AABB50040247D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8032B5AABB50040247D /* MainView.swift */; };
 		B49FE8062B5AABB60040247D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B49FE8052B5AABB60040247D /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		B47D1C492B88ED9D005BD386 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		B47D1C4B2B890751005BD386 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B47D1C4D2B891D7E005BD386 /* AvailableUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUsers.swift; sourceTree = "<group>"; };
+		B4913B4D2B8A51E6004D302A /* EditTaskForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskForm.swift; sourceTree = "<group>"; };
 		B49FE7FE2B5AABB50040247D /* TaskManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49FE8012B5AABB50040247D /* TaskManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagementApp.swift; sourceTree = "<group>"; };
 		B49FE8032B5AABB50040247D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				B42CEF072B5C808D009713C2 /* EditProject.swift */,
 				B47D1C452B88D26C005BD386 /* TaskRow.swift */,
 				B47D1C4D2B891D7E005BD386 /* AvailableUsers.swift */,
+				B4913B4D2B8A51E6004D302A /* EditTaskForm.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4913B4E2B8A51E6004D302A /* EditTaskForm.swift in Sources */,
 				B47D1C482B88ECE0005BD386 /* User.swift in Sources */,
 				B47D1C4A2B88ED9D005BD386 /* Role.swift in Sources */,
 				B47D1C4E2B891D7E005BD386 /* AvailableUsers.swift in Sources */,

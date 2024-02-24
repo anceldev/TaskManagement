@@ -11,27 +11,20 @@ struct EditProject: View {
     
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
-    
-    @State var step = Taskp()
+
     @State private var selectedColor = Color.white
-    
-    @State private var showSaveButton = false
-    @State private var showAvailableUsers = false
-    
-    var steps: [Taskp] {
-        if let steps = project.tasks { return steps }
-        else { return [] }
-    }
+//    @State private var showSaveButton = false
     
     @Bindable var project: Project
     @State private var editedProject: Project
+    
     @State private var editProject: Bool
     @State private var showConfirmationDialog = false
     @State private var showEmptyTitleDialog = false
+    @State private var showNewTaskForm = false
     
     init(project: Project, editProject: Bool = false) {
         self.project = project
-        //        self.editProject = editProject
         _editProject = State(initialValue: project.title.isEmpty)
         _editedProject = State(initialValue: project.copy())
     }
@@ -63,16 +56,16 @@ struct EditProject: View {
                             editedProject.colorHex = selectedColor.toHex()
                         }
                         .disabled(!editProject)
-                    if showSaveButton {
-                        withAnimation {
-                            Button{
-                                copyAttributes(from: editedProject, to: project)
-                            } label: {
-                                Label("Save", systemImage: "opticaldiscdrive.fill")
-                            }
-                            .buttonStyle(.borderedProminent)
-                        }
-                    }
+//                    if showSaveButton {
+//                        withAnimation {
+//                            Button{
+//                                copyAttributes(from: editedProject, to: project)
+//                            } label: {
+//                                Label("Save", systemImage: "opticaldiscdrive.fill")
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                        }
+//                    }
                     Spacer()
                     Button("Delete", role: .destructive) {
                         showConfirmationDialog.toggle()
@@ -82,7 +75,6 @@ struct EditProject: View {
             }
             .confirmationDialog("You want to delete the project?", isPresented: $showConfirmationDialog, titleVisibility: .visible, actions: {
                 Button("Yes", role: .destructive) {
-//                    deleteProject()
                     modelContext.delete(project)
                     dismiss()
                 }
@@ -92,7 +84,6 @@ struct EditProject: View {
             })
             .confirmationDialog("Title is required. You want to delete the project?", isPresented: $showEmptyTitleDialog, titleVisibility: .visible, actions: {
                 Button("Yes", role: .destructive) {
-//                    deleteProject()
                     modelContext.delete(project)
                     dismiss()
                 }
@@ -100,8 +91,8 @@ struct EditProject: View {
                     print("No action")
                 }
             })
-            .sheet(isPresented: $showAvailableUsers, content: {
-                AvailableUsers(project: project)
+            .sheet(isPresented: $showNewTaskForm, content: {
+                EditTaskForm()
             })
             .padding(20)
             .toolbar {
@@ -141,6 +132,14 @@ struct EditProject: View {
                         }
                     }
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showNewTaskForm.toggle()
+                    } label: {
+                        Label("Add", systemImage: "plus")
+                            .labelStyle(.iconOnly)
+                    }
+                }
             }
             .onAppear {
                 modelContext.undoManager = UndoManager()
@@ -157,14 +156,7 @@ struct EditProject: View {
         destiny.users = origin.users
         //                editedProject.steps = project.tasks
     }
-    private func addStep() {
-        if step.taskDescription.isEmpty { return }
-        project.tasks?.append(step)
-        step = Taskp()
-    }
-    //    private func saveChanges(){
-    //        copyAttributes(from: editedProject, to: project)
-    //    }
+
 }
 
 #Preview {
