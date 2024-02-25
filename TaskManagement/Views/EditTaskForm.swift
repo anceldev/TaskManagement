@@ -58,14 +58,20 @@ struct EditTaskForm: View {
                                 .tag(value)
                         }
                     }
+                    .pickerStyle(.wheel)
                 }
                 Spacer()
-                Button("Create"){
+                Button {
                     print("Creating task")
                     addTask()
+                } label: {
+                    HStack {
+                        Image(systemName: "square.and.arrow.up")
+                        Text("Create")
+                    }
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.yellow)
+                .buttonStyle(.customButton)
+        
             }
             .padding(20)
             .toolbar {
@@ -91,6 +97,7 @@ struct EditTaskForm: View {
     }
 }
 
-//#Preview {
-//    EditTaskForm()
-//}
+#Preview {
+    @State var previewProject = Project()
+    return EditTaskForm(project: previewProject)
+}

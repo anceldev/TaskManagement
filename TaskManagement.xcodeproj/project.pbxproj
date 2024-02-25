@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		B42CEF082B5C808D009713C2 /* EditProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CEF072B5C808D009713C2 /* EditProject.swift */; };
 		B43941942B8A809900A536EF /* TestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941932B8A809900A536EF /* TestsView.swift */; };
+		B43941972B8ABE1C00A536EF /* CheckBoxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */; };
+		B43941992B8AC31F00A536EF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941982B8AC31F00A536EF /* CustomButton.swift */; };
+		B439419B2B8AC73C00A536EF /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439419A2B8AC73C00A536EF /* CustomPicker.swift */; };
+		B43941A62B8AD4B900A536EF /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941A52B8AD4B900A536EF /* Fonts.swift */; };
 		B47D1C462B88D26C005BD386 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C452B88D26C005BD386 /* TaskRow.swift */; };
 		B47D1C482B88ECE0005BD386 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C472B88ECE0005BD386 /* User.swift */; };
 		B47D1C4A2B88ED9D005BD386 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C492B88ED9D005BD386 /* Role.swift */; };
@@ -24,6 +28,12 @@
 		B49FE8172B5AB2230040247D /* Priority&Category&Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8162B5AB2230040247D /* Priority&Category&Value.swift */; };
 		B49FE8222B5AEC9B0040247D /* TaskListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8212B5AEC9B0040247D /* TaskListingView.swift */; };
 		B49FE8242B5AEE2F0040247D /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8232B5AEE2F0040247D /* ProjectDetails.swift */; };
+		B4C8347C2B8ADB9D001833A6 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4C8347B2B8ADB9D001833A6 /* WorkSans-Thin.ttf */; };
+		B4C834832B8ADC6B001833A6 /* WorkSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4C8347E2B8ADC6B001833A6 /* WorkSans-Light.ttf */; };
+		B4C834842B8ADC6B001833A6 /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4C8347F2B8ADC6B001833A6 /* WorkSans-Medium.ttf */; };
+		B4C834852B8ADC6B001833A6 /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4C834802B8ADC6B001833A6 /* WorkSans-Regular.ttf */; };
+		B4C834862B8ADC6B001833A6 /* WorkSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4C834812B8ADC6B001833A6 /* WorkSans-LightItalic.ttf */; };
+		B4C834882B8ADD86001833A6 /* WorkSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4C834872B8ADD86001833A6 /* WorkSans-Italic.ttf */; };
 		B4F748BB2B5B4B4400FFCF29 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F748BA2B5B4B4400FFCF29 /* DataController.swift */; };
 		B4F748BE2B5B505D00FFCF29 /* ColorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F748BD2B5B505D00FFCF29 /* ColorTask.swift */; };
 		B4F748C02B5B566500FFCF29 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F748BF2B5B566500FFCF29 /* ColorExtension.swift */; };
@@ -32,6 +42,11 @@
 /* Begin PBXFileReference section */
 		B42CEF072B5C808D009713C2 /* EditProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProject.swift; sourceTree = "<group>"; };
 		B43941932B8A809900A536EF /* TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsView.swift; sourceTree = "<group>"; };
+		B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxToggleStyle.swift; sourceTree = "<group>"; };
+		B43941982B8AC31F00A536EF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B439419A2B8AC73C00A536EF /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		B439419D2B8AD32E00A536EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B43941A52B8AD4B900A536EF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		B47D1C452B88D26C005BD386 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		B47D1C472B88ECE0005BD386 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B47D1C492B88ED9D005BD386 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -48,6 +63,12 @@
 		B49FE8162B5AB2230040247D /* Priority&Category&Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Priority&Category&Value.swift"; sourceTree = "<group>"; };
 		B49FE8212B5AEC9B0040247D /* TaskListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListingView.swift; sourceTree = "<group>"; };
 		B49FE8232B5AEE2F0040247D /* ProjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
+		B4C8347B2B8ADB9D001833A6 /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
+		B4C8347E2B8ADC6B001833A6 /* WorkSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Light.ttf"; sourceTree = "<group>"; };
+		B4C8347F2B8ADC6B001833A6 /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		B4C834802B8ADC6B001833A6 /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		B4C834812B8ADC6B001833A6 /* WorkSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		B4C834872B8ADD86001833A6 /* WorkSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Italic.ttf"; sourceTree = "<group>"; };
 		B4F748BA2B5B4B4400FFCF29 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B4F748BD2B5B505D00FFCF29 /* ColorTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTask.swift; sourceTree = "<group>"; };
 		B4F748BF2B5B566500FFCF29 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -64,6 +85,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B43941952B8ABE0A00A536EF /* AuxViews */ = {
+			isa = PBXGroup;
+			children = (
+				B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */,
+				B43941982B8AC31F00A536EF /* CustomButton.swift */,
+				B439419A2B8AC73C00A536EF /* CustomPicker.swift */,
+				B43941A52B8AD4B900A536EF /* Fonts.swift */,
+			);
+			path = AuxViews;
+			sourceTree = "<group>";
+		};
+		B439419C2B8AD2B500A536EF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B439419E2B8AD33800A536EF /* WorkSans */,
+				B49FE8052B5AABB60040247D /* Assets.xcassets */,
+				B49FE8072B5AABB60040247D /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B439419E2B8AD33800A536EF /* WorkSans */ = {
+			isa = PBXGroup;
+			children = (
+				B4C834872B8ADD86001833A6 /* WorkSans-Italic.ttf */,
+				B4C8347E2B8ADC6B001833A6 /* WorkSans-Light.ttf */,
+				B4C834812B8ADC6B001833A6 /* WorkSans-LightItalic.ttf */,
+				B4C8347F2B8ADC6B001833A6 /* WorkSans-Medium.ttf */,
+				B4C834802B8ADC6B001833A6 /* WorkSans-Regular.ttf */,
+				B4C8347B2B8ADB9D001833A6 /* WorkSans-Thin.ttf */,
+			);
+			path = WorkSans;
+			sourceTree = "<group>";
+		};
 		B49FE7F52B5AABB50040247D = {
 			isa = PBXGroup;
 			children = (
@@ -83,12 +138,12 @@
 		B49FE8002B5AABB50040247D /* TaskManagement */ = {
 			isa = PBXGroup;
 			children = (
+				B439419D2B8AD32E00A536EF /* Info.plist */,
+				B439419C2B8AD2B500A536EF /* Resources */,
 				B49FE8012B5AABB50040247D /* TaskManagementApp.swift */,
 				B4F748BA2B5B4B4400FFCF29 /* DataController.swift */,
 				B49FE80F2B5AAC360040247D /* Models */,
 				B49FE8182B5AB2A70040247D /* Views */,
-				B49FE8052B5AABB60040247D /* Assets.xcassets */,
-				B49FE8072B5AABB60040247D /* Preview Content */,
 			);
 			path = TaskManagement;
 			sourceTree = "<group>";
@@ -115,6 +170,7 @@
 		B49FE8182B5AB2A70040247D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B43941952B8ABE0A00A536EF /* AuxViews */,
 				B49FE8032B5AABB50040247D /* MainView.swift */,
 				B49FE8212B5AEC9B0040247D /* TaskListingView.swift */,
 				B49FE8232B5AEE2F0040247D /* ProjectDetails.swift */,
@@ -197,8 +253,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C8347C2B8ADB9D001833A6 /* WorkSans-Thin.ttf in Resources */,
+				B4C834842B8ADC6B001833A6 /* WorkSans-Medium.ttf in Resources */,
+				B4C834882B8ADD86001833A6 /* WorkSans-Italic.ttf in Resources */,
 				B49FE8092B5AABB60040247D /* Preview Assets.xcassets in Resources */,
 				B49FE8062B5AABB60040247D /* Assets.xcassets in Resources */,
+				B4C834832B8ADC6B001833A6 /* WorkSans-Light.ttf in Resources */,
+				B4C834852B8ADC6B001833A6 /* WorkSans-Regular.ttf in Resources */,
+				B4C834862B8ADC6B001833A6 /* WorkSans-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,9 +279,12 @@
 				B49FE8132B5AACBF0040247D /* Project.swift in Sources */,
 				B49FE8042B5AABB50040247D /* MainView.swift in Sources */,
 				B47D1C462B88D26C005BD386 /* TaskRow.swift in Sources */,
+				B43941A62B8AD4B900A536EF /* Fonts.swift in Sources */,
+				B439419B2B8AC73C00A536EF /* CustomPicker.swift in Sources */,
 				B49FE8222B5AEC9B0040247D /* TaskListingView.swift in Sources */,
 				B49FE8022B5AABB50040247D /* TaskManagementApp.swift in Sources */,
 				B43941942B8A809900A536EF /* TestsView.swift in Sources */,
+				B43941972B8ABE1C00A536EF /* CheckBoxToggleStyle.swift in Sources */,
 				B49FE8242B5AEE2F0040247D /* ProjectDetails.swift in Sources */,
 				B4F748BB2B5B4B4400FFCF29 /* DataController.swift in Sources */,
 				B47D1C4C2B890751005BD386 /* File.swift in Sources */,
@@ -227,6 +292,7 @@
 				B4F748BE2B5B505D00FFCF29 /* ColorTask.swift in Sources */,
 				B49FE8172B5AB2230040247D /* Priority&Category&Value.swift in Sources */,
 				B4F748C02B5B566500FFCF29 /* ColorExtension.swift in Sources */,
+				B43941992B8AC31F00A536EF /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,10 +425,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TaskManagement/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = TaskManagement/Resources;
 				DEVELOPMENT_TEAM = 5VZ6Q8DGLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TaskManagement/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -388,10 +456,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TaskManagement/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = TaskManagement/Resources;
 				DEVELOPMENT_TEAM = 5VZ6Q8DGLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TaskManagement/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

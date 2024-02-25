@@ -62,7 +62,18 @@ struct EditProject: View {
                         .disabled(!editProject)
                     VStack {
                         ForEach(project.tasks) { step in
-                            Text(step.taskDescription)
+                            VStack {
+                                Text(step.taskDescription)
+                                HStack {
+                                    Text("Completed")
+                                    Spacer()
+                                    Toggle("Completed",
+                                           isOn: Binding(
+                                            get: { step.completed },
+                                            set: { step.completed = $0 }))
+                                    .toggleStyle(.checkboxStyle)
+                                }
+                            }
                         }
                     }
                     Button("Delete", role: .destructive) {

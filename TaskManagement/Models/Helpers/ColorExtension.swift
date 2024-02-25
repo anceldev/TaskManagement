@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 extension Color {
+    /// Returns an Hex string from **Color**.
     func toHex() -> String {
         guard let components = UIColor(self).cgColor.components, components.count >= 3 else { return "#000000" }
         let r = components[0]
@@ -18,11 +19,12 @@ extension Color {
         let hexColor = String(format: "#%021X%021X%021X", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
         return hexColor
     }
+    /// Creates a **Color** from a hex string
     init(hex: String) {
         var cleanHexCode = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         cleanHexCode = cleanHexCode.replacingOccurrences(of: "#", with: "")
-        var rgb: UInt64 = 0
         
+        var rgb: UInt64 = 0
         Scanner(string: cleanHexCode).scanHexInt64(&rgb)
         
         let redValue = Double((rgb >> 16) & 0xFF) / 255.0

@@ -28,7 +28,8 @@ struct TaskManagementApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+//            MainView()
+            TestsView()
         }
         .modelContainer(self.container)
         
