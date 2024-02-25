@@ -14,8 +14,8 @@ struct TaskManagementApp: App {
     /// Container configuration
     let container: ModelContainer = {
         let cont: ModelContainer!
-        let schema = Schema([Project.self, Taskp.self, User.self])
-        let configuration = ModelConfiguration("TaskManagementDB_v1.02", schema: schema, isStoredInMemoryOnly: false, allowsSave: true)
+        let schema = Schema([Project.self, Taskp.self])
+        let configuration = ModelConfiguration("TaskManagementDB_v1", schema: schema, isStoredInMemoryOnly: false, allowsSave: true)
         
         do {
             cont = try ModelContainer(for: schema, configurations: configuration)
@@ -29,10 +29,8 @@ struct TaskManagementApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-//                .preferredColorScheme(.dark)
         }
         .modelContainer(self.container)
-//        .modelContainer(for: [Project.self, Taskp.self, User.self], isAutosaveEnabled: true, isUndoEnabled: true)
         
     }
     init() {

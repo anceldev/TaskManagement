@@ -13,7 +13,14 @@ enum Priority: String, Codable, CaseIterable {
     case high = "High"
 }
 enum Category: String, Codable, CaseIterable {
+    case all = "All"
     case cat1 = "Category 1"
     case cat2 = "Category 2"
     case cat3 = "Category 3"
+}
+enum ValueTask: Int, Codable, CaseIterable {
+    case zero = 0
+    case one = 1
+    case two = 2
+    case tree = 3
 }

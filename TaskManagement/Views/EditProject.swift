@@ -5,15 +5,16 @@
 //  Created by Ancel Dev account on 20/1/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct EditProject: View {
     
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
-
+    
     @State private var selectedColor = Color.white
-//    @State private var showSaveButton = false
+    //    @State private var showSaveButton = false
     
     @Bindable var project: Project
     @State private var editedProject: Project
@@ -23,10 +24,13 @@ struct EditProject: View {
     @State private var showEmptyTitleDialog = false
     @State private var showNewTaskForm = false
     
+//    @Query var tasks: [Taskp]
+    
     init(project: Project, editProject: Bool = false) {
         self.project = project
         _editProject = State(initialValue: project.title.isEmpty)
         _editedProject = State(initialValue: project.copy())
+        
     }
     
     var body: some View {
@@ -56,17 +60,11 @@ struct EditProject: View {
                             editedProject.colorHex = selectedColor.toHex()
                         }
                         .disabled(!editProject)
-//                    if showSaveButton {
-//                        withAnimation {
-//                            Button{
-//                                copyAttributes(from: editedProject, to: project)
-//                            } label: {
-//                                Label("Save", systemImage: "opticaldiscdrive.fill")
-//                            }
-//                            .buttonStyle(.borderedProminent)
-//                        }
-//                    }
-                    Spacer()
+                    VStack {
+                        ForEach(project.tasks) { step in
+                            Text(step.taskDescription)
+                        }
+                    }
                     Button("Delete", role: .destructive) {
                         showConfirmationDialog.toggle()
                     }
@@ -92,7 +90,7 @@ struct EditProject: View {
                 }
             })
             .sheet(isPresented: $showNewTaskForm, content: {
-                EditTaskForm()
+                EditTaskForm(project: project)
             })
             .padding(20)
             .toolbar {
@@ -154,9 +152,8 @@ struct EditProject: View {
         destiny.progress =  origin.progress
         destiny.colorHex = origin.colorHex
         destiny.users = origin.users
-        //                editedProject.steps = project.tasks
     }
-
+    
 }
 
 #Preview {

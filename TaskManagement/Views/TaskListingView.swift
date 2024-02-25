@@ -17,14 +17,14 @@ struct TaskListingView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            ForEach(projects) { project in
-                HStack {
-                    TaskRow(project: project)
-                }
-                .frame(maxWidth: .infinity)
-            }
-            .foregroundStyle(.white)
-            Spacer()
+//            ForEach(projects) { project in
+//                HStack {
+//                    TaskRow(project: project)
+//                }
+//                .frame(maxWidth: .infinity)
+//            }
+//            .foregroundStyle(.white)
+//            Spacer()
             
         }
     }

@@ -33,10 +33,10 @@ struct ProjectDetails: View {
 //        _path = path
 //    }
     
-    var steps: [Taskp] {
-        if let steps = project.tasks { return steps }
-        else { return [] }
-    }
+//    var steps: [Taskp] {
+//        if let steps = project.tasks { return steps }
+//        else { return [] }
+//    }
     
     var body: some View {
         VStack{

@@ -17,15 +17,18 @@ class Project {
     var progress: Int
     var colorHex: String
     @Relationship(deleteRule: .noAction, inverse: \User.projects) var users: [User] // Many to many relaitonship with User model
-    @Relationship(deleteRule: .cascade, inverse: \Taskp.project) var tasks: [Taskp]?
+//    @Relationship(deleteRule: .cascade, inverse: \Taskp.project) var tasks: [Taskp]?
+//    @Relationship(deleteRule: .cascade, inverse: \Taskp.project) var tasks: [Taskp]
+    @Relationship(deleteRule: .cascade) var tasks = [Taskp]()
     
-    init(title: String = "", proDescription: String = "", priority: Priority = .normal, deadline: Date? = .now, progress: Int = 0, colorHex: String = "", users: [User] = [], steps: [Taskp]? = []) {
+//    init(title: String = "", proDescription: String = "", priority: Priority = .normal, deadline: Date? = .now, progress: Int = 0, colorHex: String = "", users: [User] = [], steps: [Taskp] = []) {
+    init(title: String = "", proDescription: String = "", priority: Priority = .normal, deadline: Date? = .now, progress: Int = 0, colorHex: String = "", users: [User] = []) {
         self.title = title
         self.proDescription = proDescription
         self.priority = priority
         self.deadline = deadline
         self.progress = progress
-        self.tasks = steps
+//        self.tasks = steps
         self.colorHex = colorHex
         self.users = users
         
@@ -39,8 +42,8 @@ class Project {
             deadline: project.deadline,
             progress: project.progress,
             colorHex: project.colorHex,
-            users: project.users,
-            steps: project.tasks)
+            users: project.users) //,
+//            steps: project.tasks)
         return copiedProject
     }
 }

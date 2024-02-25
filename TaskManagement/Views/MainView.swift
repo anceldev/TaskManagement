@@ -22,7 +22,7 @@ struct MainView: View {
                     //                    TaskListingView()
                     ForEach(projects) { project in
                         HStack {
-                            TaskRow(project: project)
+                            TaskRow(project: project, path: $path)
                         }
                         .frame(maxWidth: .infinity)
                     }
