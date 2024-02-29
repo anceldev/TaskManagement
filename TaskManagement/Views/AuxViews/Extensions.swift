@@ -27,6 +27,7 @@ struct CustomCircleButton: ButtonStyle {
         configuration.label
             .frame(width: 44, height: 44)
             .background(.tmBlack)
+            .clipShape(Circle())
             .overlay {
                Circle()
                     .stroke(.gray3, lineWidth: 1)
@@ -108,6 +109,6 @@ extension Image {
         Spacer()
     }
     .padding(20)
-    .background(.tmBlack)
+//    .background(.tmBlack)
 }
 
