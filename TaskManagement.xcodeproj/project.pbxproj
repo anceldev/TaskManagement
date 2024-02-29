@@ -10,7 +10,7 @@
 		B42CEF082B5C808D009713C2 /* EditProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CEF072B5C808D009713C2 /* EditProject.swift */; };
 		B43941942B8A809900A536EF /* TestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941932B8A809900A536EF /* TestsView.swift */; };
 		B43941972B8ABE1C00A536EF /* CheckBoxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */; };
-		B43941992B8AC31F00A536EF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941982B8AC31F00A536EF /* CustomButton.swift */; };
+		B43941992B8AC31F00A536EF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941982B8AC31F00A536EF /* Extensions.swift */; };
 		B439419B2B8AC73C00A536EF /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439419A2B8AC73C00A536EF /* CustomPicker.swift */; };
 		B43941A62B8AD4B900A536EF /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941A52B8AD4B900A536EF /* Fonts.swift */; };
 		B47D1C462B88D26C005BD386 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C452B88D26C005BD386 /* TaskRow.swift */; };
@@ -36,14 +36,14 @@
 		B4C834882B8ADD86001833A6 /* WorkSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4C834872B8ADD86001833A6 /* WorkSans-Italic.ttf */; };
 		B4F748BB2B5B4B4400FFCF29 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F748BA2B5B4B4400FFCF29 /* DataController.swift */; };
 		B4F748BE2B5B505D00FFCF29 /* ColorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F748BD2B5B505D00FFCF29 /* ColorTask.swift */; };
-		B4F748C02B5B566500FFCF29 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F748BF2B5B566500FFCF29 /* ColorExtension.swift */; };
+		B4F748C02B5B566500FFCF29 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F748BF2B5B566500FFCF29 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B42CEF072B5C808D009713C2 /* EditProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProject.swift; sourceTree = "<group>"; };
 		B43941932B8A809900A536EF /* TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsView.swift; sourceTree = "<group>"; };
 		B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxToggleStyle.swift; sourceTree = "<group>"; };
-		B43941982B8AC31F00A536EF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B43941982B8AC31F00A536EF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B439419A2B8AC73C00A536EF /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		B439419D2B8AD32E00A536EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B43941A52B8AD4B900A536EF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		B4C834872B8ADD86001833A6 /* WorkSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Italic.ttf"; sourceTree = "<group>"; };
 		B4F748BA2B5B4B4400FFCF29 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B4F748BD2B5B505D00FFCF29 /* ColorTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTask.swift; sourceTree = "<group>"; };
-		B4F748BF2B5B566500FFCF29 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		B4F748BF2B5B566500FFCF29 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +88,9 @@
 		B43941952B8ABE0A00A536EF /* AuxViews */ = {
 			isa = PBXGroup;
 			children = (
+				B4F748BF2B5B566500FFCF29 /* Colors.swift */,
 				B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */,
-				B43941982B8AC31F00A536EF /* CustomButton.swift */,
+				B43941982B8AC31F00A536EF /* Extensions.swift */,
 				B439419A2B8AC73C00A536EF /* CustomPicker.swift */,
 				B43941A52B8AD4B900A536EF /* Fonts.swift */,
 			);
@@ -188,7 +189,6 @@
 			children = (
 				B49FE8162B5AB2230040247D /* Priority&Category&Value.swift */,
 				B4F748BD2B5B505D00FFCF29 /* ColorTask.swift */,
-				B4F748BF2B5B566500FFCF29 /* ColorExtension.swift */,
 				B47D1C492B88ED9D005BD386 /* Role.swift */,
 				B47D1C4B2B890751005BD386 /* File.swift */,
 			);
@@ -291,8 +291,8 @@
 				B49FE8112B5AAC410040247D /* Taskp.swift in Sources */,
 				B4F748BE2B5B505D00FFCF29 /* ColorTask.swift in Sources */,
 				B49FE8172B5AB2230040247D /* Priority&Category&Value.swift in Sources */,
-				B4F748C02B5B566500FFCF29 /* ColorExtension.swift in Sources */,
-				B43941992B8AC31F00A536EF /* CustomButton.swift in Sources */,
+				B4F748C02B5B566500FFCF29 /* Colors.swift in Sources */,
+				B43941992B8AC31F00A536EF /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

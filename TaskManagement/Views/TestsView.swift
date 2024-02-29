@@ -11,12 +11,7 @@ struct TestsView: View {
 
     var body: some View {
         VStack{
-            Text("Hello, testing font")
-                .workSans(20, style: .medium)
-            Text("Hello, testing font")
-                .workSans()
-            Text("Hello, testing font")
-                .workSans(30, style: .light)
+            
         }
     }
 }

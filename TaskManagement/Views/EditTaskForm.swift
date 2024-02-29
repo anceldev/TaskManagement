@@ -70,7 +70,6 @@ struct EditTaskForm: View {
                         Text("Create")
                     }
                 }
-                .buttonStyle(.customButton)
         
             }
             .padding(20)

@@ -28,8 +28,8 @@ struct TaskManagementApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            MainView()
-            TestsView()
+            MainView()
+//            TestsView()
         }
         .modelContainer(self.container)
         
