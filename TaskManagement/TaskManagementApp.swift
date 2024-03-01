@@ -28,7 +28,8 @@ struct TaskManagementApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+//            MainView()
+            TestView()
                 .preferredColorScheme(.dark)
         }
         .modelContainer(self.container)

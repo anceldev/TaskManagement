@@ -34,12 +34,11 @@ struct MainView: View {
                         .fill(Color.primaryGreen)
                         .frame(width: 278, height: 278)
                         .blendMode(.normal).opacity(0.3) // Apply pass-through effect
-//                        .blur(radius: 200) // Apply blur effect
                         .blur(radius: 140)
-//                        .offset(x: 139, y: -139)
                         .offset(x: 55, y: -56)
                         .ignoresSafeArea(edges: .top)
                 }
+                
                 VStack(alignment: .leading, spacing: 0) {
                     SearchBar(searchText: $searchText)
                         .padding(.vertical, 24)
@@ -62,17 +61,7 @@ struct MainView: View {
                         }
                     }
                     Spacer()
-                        .toolbar {
-                            ToolbarItem(placement: .topBarTrailing) {
-                                Button(action: addTask, label: {
-                                    Image(systemName: "plus")
-                                })
-                            }
-                            ToolbarItem(placement: .principal) { Text("Projects")
-                                    .foregroundStyle(.white)
-                                    .clashDisplay(28, .medium)
-                            }
-                        }
+
                 }
                 .padding(.horizontal, 24)
                 .navigationBarTitleDisplayMode(.inline)
@@ -80,8 +69,26 @@ struct MainView: View {
                     Text("It's trying to add a new project")
                 })
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: addTask, label: {
+                        Image(systemName: "plus")
+                    })
+                }
+                ToolbarItem(placement: .principal) { Text("Projects")
+                        .foregroundStyle(.white)
+                        .clashDisplay(28, .medium)
+                }
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        print("House")
+                    } label: {
+                        Image(systemName: "house")
+                            .foregroundStyle(.primaryGreen)
+                    }
+                }
+            }
         }
-//        .searchable(text: $searchText)
     }
     func addTask() {
         let task = Project()
