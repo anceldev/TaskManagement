@@ -46,13 +46,17 @@ struct MainView: View {
                     }
                     Spacer()
                         .toolbar {
-                            Button(action: addTask, label: {
-                                Image(systemName: "plus")
-                                
-                            })
+                            ToolbarItem(placement: .topBarTrailing) {
+                                Button(action: addTask, label: {
+                                    Image(systemName: "plus")
+                                })
+                            }
+                            ToolbarItem(placement: .principal) { Text("Projects")
+                                    .foregroundStyle(.white)
+                                    .clashDisplay(28, style: .medium)
+                            }
                         }
                 }
-                .navigationTitle("Today taks's")
                 .navigationBarTitleDisplayMode(.inline)
                 .sheet(isPresented: $addNewProject, content: {
                     Text("It's trying to add a new project")

@@ -46,6 +46,7 @@ struct CustomTextFied: ViewModifier {
 }
 struct CustomProgressBarStyle: ProgressViewStyle {
     var height: CGFloat = 5
+    var isFavorite: Bool
     func makeBody(configuration: Configuration) -> some View {
         let progress = configuration.fractionCompleted ?? 0.0
         
@@ -58,14 +59,14 @@ struct CustomProgressBarStyle: ProgressViewStyle {
                     .overlay {
                         Capsule()
                             .stroke(lineWidth:1)
-                            .foregroundStyle(.primaryGreen)
+                            .foregroundStyle(isFavorite ? .primaryGreen : .white)
                     }
                 Capsule()
                     .frame(width: min(CGFloat(progress) * gwidth, gwidth), height: height)
-                    .foregroundStyle(.primaryGreen)
+                    .foregroundStyle(isFavorite ? .primaryGreen : .white)
                     .overlay {
                         Capsule()
-                            .fill(.primaryGreen)
+                            .fill(isFavorite ? .primaryGreen : .white)
 
                     }
             })
@@ -95,7 +96,10 @@ extension Image {
     }
 }
 extension ProgressViewStyle where Self == CustomProgressBarStyle {
-    static var customProgressBar: CustomProgressBarStyle { .init() }
+//    static var customProgressBar: CustomProgressBarStyle { .init() }
+    static func customProgressBar(_ isFavorite: Bool = false) -> CustomProgressBarStyle {
+        CustomProgressBarStyle(isFavorite: isFavorite)
+    }
 }
 
 
@@ -136,7 +140,9 @@ extension ProgressViewStyle where Self == CustomProgressBarStyle {
         .buttonStyle(.customCircleButton)
         
         ProgressView(value: 0.8)
-            .progressViewStyle(.customProgressBar)
+            .progressViewStyle(.customProgressBar())
+        ProgressView(value: 0.8)
+            .progressViewStyle(.customProgressBar(true))
         
         // Example of custom capsule button
         Button("Press Me") {

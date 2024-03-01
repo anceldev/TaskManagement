@@ -7,12 +7,9 @@
 import SwiftUI
 import Foundation
 enum StyleFonts: String {
+    case semibold = "SemiBold"
     case medium = "Medium"
     case regular = "Regular"
-    case light = "Light"
-    case thin = "Thin"
-    case italic = "Italic"
-    case lightItalic = "LightItalic"
 }
 
 struct WorkSansFont: ViewModifier {
@@ -29,4 +26,8 @@ extension View {
     func workSans(_ size: CGFloat = 16,style: StyleFonts = .regular) -> some View {
         modifier(WorkSansFont(size: size, style: style.rawValue))
     }
+}
+#Preview {
+    Text("abcd")
+        .workSans(40, style: .semibold)
 }

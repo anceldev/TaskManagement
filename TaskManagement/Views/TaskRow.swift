@@ -11,7 +11,33 @@ struct TaskRow: View {
     let project: Project
     
     @Binding var path: [Project]
-    @State private var isFavorite = false
+    
+    let starFill: some View = Image(systemName: "star.fill")
+        .resizable()
+        .frame(width: 12, height: 12)
+    let starEmpty: some View = Image(systemName: "star")
+        .resizable()
+        .frame(width: 12, height: 12)
+    
+    var priority: some View {
+        HStack(spacing: 2) {
+            switch project.priority {
+            case .low:
+                starFill
+                starEmpty
+                starEmpty
+            case .normal:
+                starFill
+                starFill
+                starEmpty
+            case .high:
+                Image(systemName: "star.fill")
+                Image(systemName: "star.fill")
+                Image(systemName: "star.fill")
+            }
+        }
+        .foregroundStyle(project.isFavorite ? .primaryGreen : .white)
+    }
     
     var body: some View {
         HStack {
@@ -19,14 +45,22 @@ struct TaskRow: View {
                 VStack {
                     Text("12:00")
                 }
-                VStack() {
+                VStack {
                     HStack(alignment: .top) {
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 0) {
                             Text(project.title)
+                                .foregroundStyle(.white)
+                                .clashDisplay(20, style: .medium)
+                            Spacer()
                             Text(project.proDescription)
+                                .lineLimit(1)
+                                .workSans(12, style: .regular)
+                                .foregroundStyle(.text)
                             Spacer()
                             ShortDetailsProject()
                         }
+                        .padding(.top, 8)
+                        .frame(height: 72)
                         Spacer()
                         VStack {
                             Button {
@@ -43,20 +77,16 @@ struct TaskRow: View {
                         }
                     }
                 }
-                .frame(maxHeight: .infinity)
             }
             .padding(15)
         }
         .frame(maxWidth: .infinity)
         .frame(height: 102)
         .background(.gray1)
-//        .background {
-//            Color.gray1
-//        }
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay {
             RoundedRectangle(cornerRadius: 10)
-                .stroke(.clear, lineWidth: 1)
+                .stroke(project.isFavorite ? .primaryGreen : .clear, lineWidth: 1)
         }
         .onTapGesture {
             path.append(project)
@@ -74,10 +104,11 @@ struct TaskRow: View {
                 .workSans(13, style: .medium)
             Image(systemName: "circle.fill")
                 .resizable()
-                .foregroundStyle(.white)
+//                .foregroundStyle(.white)
+                .foregroundStyle(.gray4)
                 .frame(width: 5, height: 5)
             ProgressView(value: progress)
-                .progressViewStyle(.customProgressBar)
+                .progressViewStyle(.customProgressBar(project.isFavorite))
                 .frame(width: 40)
                 .offset(y: 2)
             Text("\(project.progress)%")
@@ -85,8 +116,16 @@ struct TaskRow: View {
                 .workSans(13, style: .medium)
             Image(systemName: "circle.fill")
                 .resizable()
-                .foregroundStyle(.white)
+//                .foregroundStyle(.white)
+                .foregroundStyle(.gray4)
                 .frame(width: 5, height: 5)
+            priority
+                .padding(3)
+                .clipShape(Capsule())
+                .overlay {
+                    Capsule()
+                        .stroke(.gray3, lineWidth: 1)
+                }
         }
         .frame(height: 18)
     }

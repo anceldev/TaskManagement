@@ -4,12 +4,12 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>WorkSans-Italic.ttf</string>
-		<string>WorkSans-Medium.ttf</string>
+		<string>WorkSans-SemiBold.ttf</string>
 		<string>WorkSans-Regular.ttf</string>
-		<string>WorkSans-Light.ttf</string>
-		<string>WorkSans-LightItalic.ttf</string>
-		<string>WorkSans-Thin.ttf</string>
+		<string>WorkSans-Medium.ttf</string>
+		<string>ClashDisplay-Medium.otf</string>
+		<string>ClashDisplay-Semibold.otf</string>
+		<string>ClashDisplay-Regular.otf</string>
 	</array>
 </dict>
 </plist>
