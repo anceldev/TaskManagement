@@ -30,12 +30,14 @@ struct EditProject: View {
         self.project = project
         _editProject = State(initialValue: project.title.isEmpty)
         _editedProject = State(initialValue: project.copy())
-        
     }
     
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
+                Text(project.title.isEmpty ? "Create" : "Edit")
+                    .foregroundStyle(.blue)
                 VStack{
                     TextField("Project name", text: $editedProject.title)
                         .disabled(!editProject)
@@ -81,7 +83,9 @@ struct EditProject: View {
                     }
                     .buttonStyle(.borderedProminent)
                 }
+                Spacer()
             }
+            .background(.tmBlack)
             .confirmationDialog("You want to delete the project?", isPresented: $showConfirmationDialog, titleVisibility: .visible, actions: {
                 Button("Yes", role: .destructive) {
                     modelContext.delete(project)
@@ -103,7 +107,6 @@ struct EditProject: View {
             .sheet(isPresented: $showNewTaskForm, content: {
                 EditTaskForm(project: project)
             })
-            .padding(20)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
@@ -114,10 +117,10 @@ struct EditProject: View {
                             dismiss()
                         }
                     } label: {
-                        HStack{
                             Image(systemName: "chevron.backward")
-                        }
+                            .foregroundStyle(.white)
                     }
+                    .buttonStyle(.customCircleButton(size: 44))
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {

@@ -23,9 +23,10 @@ struct CustomButton: ButtonStyle {
     }
 }
 struct CustomCircleButton: ButtonStyle {
+    let size: CGFloat
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: 44, height: 44)
+            .frame(width: size, height: size) // 44
             .background(.tmBlack)
             .clipShape(Circle())
             .overlay {
@@ -81,7 +82,10 @@ extension ButtonStyle where Self == CustomButton {
     }
 }
 extension ButtonStyle where Self == CustomCircleButton {
-    static var customCircleButton: CustomCircleButton { .init() }
+//    static var customCircleButton: CustomCircleButton { .init() }
+    static func customCircleButton(size: CGFloat) -> CustomCircleButton {
+        CustomCircleButton(size: size)
+    }
 }
 extension View {
     func customTextField() -> some View {
@@ -108,12 +112,11 @@ extension ProgressViewStyle where Self == CustomProgressBarStyle {
     @State var test = ""
     return VStack {// Example of custom circle button
         Spacer()
-        HStack {
+        HStack(spacing:12) {
             Image(systemName: "person")
                 .customSize(24)
                 .foregroundStyle(.primaryGreen)
             TextField("Test", text: $test)
-                .padding(.leading, 12)
         }
         .padding(12)
         .customTextField()
@@ -126,7 +129,7 @@ extension ProgressViewStyle where Self == CustomProgressBarStyle {
                 .frame(width: 22, height:  22)
                 .foregroundStyle(.white)
         }
-        .buttonStyle(.customCircleButton)
+        .buttonStyle(.customCircleButton(size: 44))
         Button{
             //
         } label: {
@@ -137,7 +140,7 @@ extension ProgressViewStyle where Self == CustomProgressBarStyle {
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
         }
-        .buttonStyle(.customCircleButton)
+        .buttonStyle(.customCircleButton(size: 44))
         
         ProgressView(value: 0.8)
             .progressViewStyle(.customProgressBar())

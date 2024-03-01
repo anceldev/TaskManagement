@@ -24,12 +24,12 @@ struct ClashDisplayFont: ViewModifier {
 
 extension View {
     /** Custom modifier for each font, */
-    func clashDisplay(_ size: CGFloat = 16,style: StyleFontsClashDisplay = .regular) -> some View {
+    func clashDisplay(_ size: CGFloat = 16,_ style: StyleFontsClashDisplay = .regular) -> some View {
         modifier(ClashDisplayFont(size: size, style: style.rawValue))
     }
 }
 
 #Preview {
     Text("Hello my friend")
-        .clashDisplay(20,style: .semibold)
+        .clashDisplay(20, .semibold)
 }

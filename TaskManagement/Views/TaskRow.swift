@@ -31,9 +31,9 @@ struct TaskRow: View {
                 starFill
                 starEmpty
             case .high:
-                Image(systemName: "star.fill")
-                Image(systemName: "star.fill")
-                Image(systemName: "star.fill")
+                starFill
+                starFill
+                starFill
             }
         }
         .foregroundStyle(project.isFavorite ? .primaryGreen : .white)
@@ -41,21 +41,23 @@ struct TaskRow: View {
     
     var body: some View {
         HStack {
-            HStack{
+            HStack(spacing: 12){
                 VStack {
-                    Text("12:00")
+                    RoundedRectangle(cornerRadius: 13)
+                        .fill(.tmBlack)
+                        .frame(width: 56, height: 56)
                 }
                 VStack {
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: 0) {
                             Text(project.title)
                                 .foregroundStyle(.white)
-                                .clashDisplay(20, style: .medium)
+                                .clashDisplay(20, .medium)
                             Spacer()
                             Text(project.proDescription)
                                 .lineLimit(1)
                                 .workSans(12, style: .regular)
-                                .foregroundStyle(.text)
+                                .foregroundStyle(.textColor1)
                             Spacer()
                             ShortDetailsProject()
                         }
@@ -72,7 +74,7 @@ struct TaskRow: View {
                                 Image(systemName: "bookmark.fill")
                                     .foregroundStyle(project.isFavorite ? .primaryGreen : .white)
                             }
-                            .buttonStyle(.customCircleButton)
+                            .buttonStyle(.customCircleButton(size: 32))
                             Spacer()
                         }
                     }
@@ -91,34 +93,31 @@ struct TaskRow: View {
         .onTapGesture {
             path.append(project)
         }
-        .padding(.horizontal, 24)
         .padding(.vertical, 7)
     }
     @ViewBuilder
     func ShortDetailsProject() -> some View {
         let progress = CGFloat(CGFloat(project.progress) / 100)
+        let dot = Image(systemName: "circle.fill")
+            .resizable()
+            .foregroundStyle(.gray4)
+            .frame(width: 5, height: 5)
+            .padding(.horizontal, 6)
 
-        HStack(alignment: .center) {
+        HStack(alignment: .center, spacing: 0) {
             Text(project.deadline!, format: .dateTime.day().month())
                 .foregroundStyle(.white)
                 .workSans(13, style: .medium)
-            Image(systemName: "circle.fill")
-                .resizable()
-//                .foregroundStyle(.white)
-                .foregroundStyle(.gray4)
-                .frame(width: 5, height: 5)
+            dot
             ProgressView(value: progress)
                 .progressViewStyle(.customProgressBar(project.isFavorite))
                 .frame(width: 40)
-                .offset(y: 2)
+                .offset(y: 2.5)
             Text("\(project.progress)%")
                 .foregroundStyle(.white)
                 .workSans(13, style: .medium)
-            Image(systemName: "circle.fill")
-                .resizable()
-//                .foregroundStyle(.white)
-                .foregroundStyle(.gray4)
-                .frame(width: 5, height: 5)
+                .padding(.leading, 3)
+            dot
             priority
                 .padding(3)
                 .clipShape(Capsule())

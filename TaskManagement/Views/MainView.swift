@@ -14,7 +14,15 @@ struct MainView: View {
     @Query(sort: \Project.deadline, order: .forward) var projects: [Project]
     @State private var path = [Project]()
     @State private var addNewProject = false
+    @State private var searchText = ""
     
+    var searchResults: [Project] {
+        if searchText.isEmpty {
+            return projects
+        } else {
+            return projects.filter{ $0.title.contains(searchText)}
+        }
+    }
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -25,18 +33,27 @@ struct MainView: View {
                     Circle()
                         .fill(Color.primaryGreen)
                         .frame(width: 278, height: 278)
-                        .blendMode(.normal).opacity(0.8) // Apply pass-through effect
-                        .blur(radius: 200) // Apply blur effect
-                        .offset(x: 139, y: -139)
+                        .blendMode(.normal).opacity(0.3) // Apply pass-through effect
+//                        .blur(radius: 200) // Apply blur effect
+                        .blur(radius: 140)
+//                        .offset(x: 139, y: -139)
+                        .offset(x: 55, y: -56)
                         .ignoresSafeArea(edges: .top)
                 }
-                VStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    SearchBar(searchText: $searchText)
+                        .padding(.vertical, 24)
+                    Text("Show Results")
+                        .clashDisplay(24, .medium)
+                        .foregroundStyle(.white)
+                        .padding(.bottom, 7)
                     VStack {
-                        ForEach(projects) { project in
+                        ForEach(searchResults) { project in
                             HStack {
                                 TaskRow(project: project, path: $path)
                             }
                             .frame(maxWidth: .infinity)
+                            
                         }
                         .foregroundStyle(.white)
                         .navigationDestination(for: Project.self) { project in
@@ -53,16 +70,18 @@ struct MainView: View {
                             }
                             ToolbarItem(placement: .principal) { Text("Projects")
                                     .foregroundStyle(.white)
-                                    .clashDisplay(28, style: .medium)
+                                    .clashDisplay(28, .medium)
                             }
                         }
                 }
+                .padding(.horizontal, 24)
                 .navigationBarTitleDisplayMode(.inline)
                 .sheet(isPresented: $addNewProject, content: {
                     Text("It's trying to add a new project")
                 })
             }
         }
+//        .searchable(text: $searchText)
     }
     func addTask() {
         let task = Project()
