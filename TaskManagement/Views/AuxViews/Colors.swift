@@ -38,50 +38,43 @@ extension Color {
     }
 }
 
-let gradientGreen: [Color] = [
-    Color(hex: "#BFFCB6"),
-    Color(hex: "#7FD474")
-]
-let gradientYellow: [Color] = [
-]
-
-enum CustomGradients {
-    case green([Color])
-    case yellow([Color])
-    case purple([Color])
-    case darkGreen([Color])
-    case secondDarkGreen([Color])
-    var colors: [Color] {
-        switch self {
-        case .green(let colors):
-            return [Color(hex: "#BFFCB6"), Color(hex: "#7FD474")]
-        case .yellow(let colors):
-            return [Color(hex: "#FFE4AD"), Color(hex: "#FFCB62")]
-        case .purple(let colors):
-            return [Color(hex: "#E8DBFF"), Color(hex: "#B990FF")]
-        case .darkGreen(let colors):
-            return [Color(red: 179/255, green: 240/255, blue: 170/255, opacity: 0.1), Color(red: 170/255, green: 240/255, blue: 170/255, opacity: 0.1)]
-        case .secondDarkGreen(let color):
-            return [Color(red: 179/255, green: 240/255, blue: 170/255, opacity: 0.07)] /// Checko opacity, it mut be 7%.
-        }
-    }
-}
-enum ButtonGradients {
-    case green([Color])
-    case yellow([Color])
-    case purple([Color])
-    case red([Color])
-    
-    var colors: [Color] {
-        switch self {
-        case .green(let colors):
-            return [Color(hex: "#BFFCB6"), Color(hex: "#7Fd474")]
-        case .yellow(let colors):
-            return [Color(hex: "#BFFCB6"), Color(hex: "#7Fd474")]
-        case .purple(let colors):
-            return [Color(hex: "#E8DBFF"), Color(hex: "#B990")]
-        case .red(let colors):
-            return [Color(hex: "#FF9DB2"), Color(hex: "#FF567B")]
-        }
-    }
-}
+//enum CustomGradients {
+//    case green([Color])
+//    case yellow([Color])
+//    case purple([Color])
+//    case darkGreen([Color])
+//    case secondDarkGreen([Color])
+//    var colors: [Color] {
+//        switch self {
+//        case .green(let colors):
+//            return [Color(hex: "#BFFCB6"), Color(hex: "#7FD474")]
+//        case .yellow(let colors):
+//            return [Color(hex: "#FFE4AD"), Color(hex: "#FFCB62")]
+//        case .purple(let colors):
+//            return [Color(hex: "#E8DBFF"), Color(hex: "#B990FF")]
+//        case .darkGreen(let colors):
+//            return [Color(red: 179/255, green: 240/255, blue: 170/255, opacity: 0.1), Color(red: 170/255, green: 240/255, blue: 170/255, opacity: 0.1)]
+//        case .secondDarkGreen(let color):
+//            return [Color(red: 179/255, green: 240/255, blue: 170/255, opacity: 0.07)] /// Checko opacity, it mut be 7%.
+//        }
+//    }
+//}
+//enum ButtonGradients {
+//    case green([Color])
+//    case yellow([Color])
+//    case purple([Color])
+//    case red([Color])
+//    
+//    var colors: [Color] {
+//        switch self {
+//        case .green(let colors):
+//            return [Color(hex: "#BFFCB6"), Color(hex: "#7Fd474")]
+//        case .yellow(let colors):
+//            return [Color(hex: "#BFFCB6"), Color(hex: "#7Fd474")]
+//        case .purple(let colors):
+//            return [Color(hex: "#E8DBFF"), Color(hex: "#B990")]
+//        case .red(let colors):
+//            return [Color(hex: "#FF9DB2"), Color(hex: "#FF567B")]
+//        }
+//    }
+//}

@@ -24,7 +24,10 @@ struct EditProject: View {
     @State private var showEmptyTitleDialog = false
     @State private var showNewTaskForm = false
     
-//    @Query var tasks: [Taskp]
+    @State var selectedFruit: Fruit?
+    @State var customPriority: Priority?
+    
+    //    @Query var tasks: [Taskp]
     
     init(project: Project, editProject: Bool = false) {
         self.project = project
@@ -34,19 +37,44 @@ struct EditProject: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
-                Text(project.title.isEmpty ? "Create" : "Edit")
-                    .foregroundStyle(.blue)
+            VStack(alignment: .leading) {
+                Text(project.title.isEmpty ? "Create\nproject" : "Edit \nproject")
+                    .foregroundStyle(.white)
+                    .clashDisplay(38, .medium)
+                    .padding(.top, 17)
                 VStack{
-                    TextField("Project name", text: $editedProject.title)
+                    
+                    CustomTextField(text: $editedProject.title, placeholder: "Title of project", systemImage: "pencil" , disabled: $editProject)
+                    CustomTextField(text: $editedProject.proDescription, placeholder: "Description of project...", systemImage: "note.text", disabled: $editProject)
+                    
+                    TextEditor(text: $editedProject.proDescription)
+                        .padding(10)
+                        .foregroundStyle(editedProject.proDescription.isEmpty ? .textColor1 : .white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 100)
+                        .scrollContentBackground(.hidden)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 11)
+                                .stroke(.gray3, lineWidth: 1)
+                        }
                         .disabled(!editProject)
-                    TextField("Description", text: $editedProject.proDescription)
-                        .disabled(!editProject)
+                    CustomPicker(selection: $selectedFruit) {
+                                    Fruit.allCases
+                                }
+                    
+                    CustomPicker(selection: $customPriority) {
+                        Priority.allCases
+                    }
+                    .onChange(of: customPriority) {
+                        print(customPriority?.rawValue ?? "No value")
+                    }
+
+                    
                     Picker("Priority", selection: $editedProject.priority) {
                         ForEach(Priority.allCases, id: \.self) { priority in
                             Text(priority.rawValue)
                                 .tag(priority)
+                                
                         }
                     }
                     .disabled(!editProject)
@@ -85,7 +113,8 @@ struct EditProject: View {
                 }
                 Spacer()
             }
-            .background(.tmBlack)
+            .padding(.horizontal, 24)
+            .background(.gray1)
             .confirmationDialog("You want to delete the project?", isPresented: $showConfirmationDialog, titleVisibility: .visible, actions: {
                 Button("Yes", role: .destructive) {
                     modelContext.delete(project)
@@ -117,7 +146,7 @@ struct EditProject: View {
                             dismiss()
                         }
                     } label: {
-                            Image(systemName: "chevron.backward")
+                        Image(systemName: "chevron.backward")
                             .foregroundStyle(.white)
                     }
                     .buttonStyle(.customCircleButton(size: 44))

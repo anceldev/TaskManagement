@@ -7,10 +7,11 @@
 
 import Foundation
 
-enum Priority: String, Codable, CaseIterable {
+enum Priority: String, Codable, CaseIterable, Identifiable{
     case low = "Low"
     case normal = "Normal"
     case high = "High"
+    var id: String { self.rawValue }
 }
 enum Category: String, Codable, CaseIterable {
     case all = "All"
