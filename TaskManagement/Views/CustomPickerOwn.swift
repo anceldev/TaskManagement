@@ -16,6 +16,7 @@ enum Fruit: String, CaseIterable, Identifiable {
 struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Content.Element, Content: RandomAccessCollection, Content.Element: Identifiable & Equatable, Content.Element.ID == String {
     
     @Binding var selection: SelectionValue?
+    @Binding var disabled: Bool
     let items: () -> Content
     
     @State var isPicking = false
@@ -25,6 +26,7 @@ struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Conte
     let buttonHeight: CGFloat = 44
     let arrowSize: CGFloat = 16
     let cornerRadius: CGFloat = 20
+    
     
     var body: some View {
         // Select Button - Selected item
@@ -41,12 +43,14 @@ struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Conte
                 .frame(height: buttonHeight)
                 .background(
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(Color("PickerColor"))
+                        .fill(.blue)
                         .stroke(Color.primary, lineWidth: 2.2)
                 )
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    isPicking.toggle()
+                    if disabled{
+                        isPicking.toggle()
+                    }
                 }
                 // Picker
                 .overlay(alignment: .topLeading) {
@@ -59,6 +63,7 @@ struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Conte
                                         Divider()
                                         Button {
                                             selection = item
+                                            print(selection ?? "Doesn't change the value")
                                             isPicking.toggle()
                                         } label: {
                                             Text(item.id.capitalized)
@@ -89,7 +94,8 @@ struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Conte
                             .scrollIndicators(.never)
 //                            .frame(height: 200)
                             .frame(height: CGFloat(items().count) * buttonHeight)
-                            .background(Color("PickerColor"))
+//                            .background(Color("PickerColor"))
+                            .background(.blue)
                             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                             .overlay(
                                 RoundedRectangle(cornerRadius: cornerRadius)
@@ -102,7 +108,7 @@ struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Conte
                 }
                 .padding(.horizontal, 12)
                 .opacity(isEnabled ? 1.0 : 0.6)
-                .font(.custom("RetroComputer", size: 13))
+                .clashDisplay(13, .regular)
                 .animation(.easeInOut(duration: 0.12), value: isPicking)
                 .sensoryFeedback(.selection, trigger: selection)
                 .zIndex(1)
@@ -110,8 +116,10 @@ struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Conte
 }
 
 #Preview {
-    VStack {
-        CustomPicker(selection: .constant(nil)) {
+    @State var disabled = false
+     return VStack {
+        CustomPicker(selection: .constant(nil), disabled: $disabled)
+        {
             Fruit.allCases
         }
     }

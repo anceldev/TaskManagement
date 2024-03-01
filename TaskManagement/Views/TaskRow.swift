@@ -34,6 +34,10 @@ struct TaskRow: View {
                 starFill
                 starFill
                 starFill
+            case .none:
+                starEmpty
+                starEmpty
+                starEmpty
             }
         }
         .foregroundStyle(project.isFavorite ? .primaryGreen : .white)

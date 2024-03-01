@@ -43,7 +43,7 @@ struct CustomTextField: View {
             .workSans(16, style: .regular)
             .foregroundStyle(text.isEmpty ? .textColor1 : .white)
             .disabled(!self.disabled)
-            .frame(width: .infinity)
+//            .frame(width: .infinity)
             .padding(.leading, systemImage == nil ? 16 : 0)
             if disabled {
                 Button {

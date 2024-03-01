@@ -12,7 +12,7 @@ import SwiftData
 class Project {
     var title: String
     var proDescription: String
-    var priority: Priority
+    var priority: Priority?
     var deadline: Date?
     var progress: Int
     var isFavorite: Bool
@@ -23,7 +23,7 @@ class Project {
     @Relationship(deleteRule: .cascade) var tasks = [Taskp]()
     
 //    init(title: String = "", proDescription: String = "", priority: Priority = .normal, deadline: Date? = .now, progress: Int = 0, colorHex: String = "", users: [User] = [], steps: [Taskp] = []) {
-    init(title: String = "", proDescription: String = "", priority: Priority = .normal, deadline: Date? = .now, progress: Int = 0, isFavorite: Bool = false, colorHex: String = "", users: [User] = []) {
+    init(title: String = "", proDescription: String = "", priority: Priority? = nil, deadline: Date? = .now, progress: Int = 0, isFavorite: Bool = false, colorHex: String = "", users: [User] = []) {
         self.title = title
         self.proDescription = proDescription
         self.priority = priority

@@ -58,26 +58,26 @@ struct EditProject: View {
                                 .stroke(.gray3, lineWidth: 1)
                         }
                         .disabled(!editProject)
-                    CustomPicker(selection: $selectedFruit) {
-                                    Fruit.allCases
-                                }
+//                    CustomPicker(selection: $selectedFruit) {
+//                                    Fruit.allCases
+//                                }
                     
-                    CustomPicker(selection: $customPriority) {
+                    CustomPicker(selection: $editedProject.priority, disabled: $editProject) {
                         Priority.allCases
                     }
-                    .onChange(of: customPriority) {
-                        print(customPriority?.rawValue ?? "No value")
+                    .onChange(of: project.priority) {
+                        print(project.priority?.rawValue ?? "No value")
                     }
 
-                    
-                    Picker("Priority", selection: $editedProject.priority) {
-                        ForEach(Priority.allCases, id: \.self) { priority in
-                            Text(priority.rawValue)
-                                .tag(priority)
-                                
-                        }
-                    }
-                    .disabled(!editProject)
+//                    
+//                    Picker("Priority", selection: $editedProject.priority) {
+//                        ForEach(Priority.allCases, id: \.self) { priority in
+//                            Text(priority.rawValue)
+//                                .tag(priority)
+//                                
+//                        }
+//                    }
+//                    .disabled(!editProject)
                     DatePicker("Expire date",
                                selection: Binding(
                                 get: { editedProject.deadline ?? Date()},
@@ -188,6 +188,7 @@ struct EditProject: View {
         }
     }
     private func copyAttributes(from origin: Project, to destiny: Project){
+        print(origin.priority?.rawValue ?? "No picked")
         destiny.title = origin.title
         destiny.proDescription = origin.proDescription
         destiny.priority = origin.priority
