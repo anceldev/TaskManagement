@@ -44,6 +44,36 @@ struct CustomTextFied: ViewModifier {
             }
     }
 }
+struct CustomProgressBarStyle: ProgressViewStyle {
+    var height: CGFloat = 5
+    func makeBody(configuration: Configuration) -> some View {
+        let progress = configuration.fractionCompleted ?? 0.0
+        
+        return GeometryReader { geo in
+            let gwidth = geo.size.width
+            ZStack(alignment: .leading, content: {
+                Capsule()
+                    .frame(width: gwidth, height: height)
+                    .opacity(0)
+                    .overlay {
+                        Capsule()
+                            .stroke(lineWidth:1)
+                            .foregroundStyle(.primaryGreen)
+                    }
+                Capsule()
+                    .frame(width: min(CGFloat(progress) * gwidth, gwidth), height: height)
+                    .foregroundStyle(.primaryGreen)
+                    .overlay {
+                        Capsule()
+                            .fill(.primaryGreen)
+
+                    }
+            })
+        }
+        .frame(height: 10)
+    }
+}
+
 extension ButtonStyle where Self == CustomButton {
     static func customButton(bg: Color = .primaryGreen, text: Color = .black) -> CustomButton {
         CustomButton(bg: bg, text: text)
@@ -57,7 +87,6 @@ extension View {
         modifier(CustomTextFied())
     }
 }
-
 extension Image {
     func customSize(_ size: CGFloat) -> some View {
         self
@@ -65,6 +94,10 @@ extension Image {
             .frame(width: size, height: size)
     }
 }
+extension ProgressViewStyle where Self == CustomProgressBarStyle {
+    static var customProgressBar: CustomProgressBarStyle { .init() }
+}
+
 
 // Example usage
 #Preview {
@@ -101,6 +134,10 @@ extension Image {
                 .foregroundStyle(.white)
         }
         .buttonStyle(.customCircleButton)
+        
+        ProgressView(value: 0.8)
+            .progressViewStyle(.customProgressBar)
+        
         // Example of custom capsule button
         Button("Press Me") {
             // Add your action here
@@ -109,6 +146,6 @@ extension Image {
         Spacer()
     }
     .padding(20)
-//    .background(.tmBlack)
+    .background(.tmBlack)
 }
 

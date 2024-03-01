@@ -18,30 +18,25 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack(path: $path) {
-            ZStack{
+            ZStack(alignment: .topTrailing){
                 Color.tmBlack
+                    .ignoresSafeArea(.all)
                 VStack {
                     Circle()
                         .fill(Color.primaryGreen)
                         .frame(width: 278, height: 278)
+                        .blendMode(.normal).opacity(0.8) // Apply pass-through effect
                         .blur(radius: 200) // Apply blur effect
-                        .blendMode(.normal) // Apply pass-through effect
-                    
+                        .offset(x: 139, y: -139)
+                        .ignoresSafeArea(edges: .top)
                 }
-                
-                VStack{
-                    VStack(alignment: .leading) {
+                VStack {
+                    VStack {
                         ForEach(projects) { project in
                             HStack {
                                 TaskRow(project: project, path: $path)
                             }
                             .frame(maxWidth: .infinity)
-//                            .frame(height: 102)
-//                            .background(.gray1)
-//                            .overlay {
-//                                RoundedRectangle(cornerRadius: 10)
-//                                    .stroke(.primaryGreen, lineWidth: 1)
-//                            }
                         }
                         .foregroundStyle(.white)
                         .navigationDestination(for: Project.self) { project in
@@ -49,7 +44,6 @@ struct MainView: View {
                                 .navigationBarBackButtonHidden()
                         }
                     }
-                
                     Spacer()
                         .toolbar {
                             Button(action: addTask, label: {
@@ -57,7 +51,6 @@ struct MainView: View {
                                 
                             })
                         }
-                        
                 }
                 .navigationTitle("Today taks's")
                 .navigationBarTitleDisplayMode(.inline)

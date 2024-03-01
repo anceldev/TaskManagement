@@ -15,7 +15,7 @@ struct TaskManagementApp: App {
     let container: ModelContainer = {
         let cont: ModelContainer!
         let schema = Schema([Project.self, Taskp.self])
-        let configuration = ModelConfiguration("TaskManagementDB_v1", schema: schema, isStoredInMemoryOnly: false, allowsSave: true)
+        let configuration = ModelConfiguration("TaskManagementDB_v1.2", schema: schema, isStoredInMemoryOnly: false, allowsSave: true)
         
         do {
             cont = try ModelContainer(for: schema, configurations: configuration)

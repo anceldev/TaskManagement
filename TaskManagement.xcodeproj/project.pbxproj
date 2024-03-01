@@ -173,11 +173,11 @@
 			children = (
 				B43941952B8ABE0A00A536EF /* AuxViews */,
 				B49FE8032B5AABB50040247D /* MainView.swift */,
+				B47D1C452B88D26C005BD386 /* TaskRow.swift */,
 				B49FE8212B5AEC9B0040247D /* TaskListingView.swift */,
 				B49FE8232B5AEE2F0040247D /* ProjectDetails.swift */,
 				B42CEF072B5C808D009713C2 /* EditProject.swift */,
 				B4913B4D2B8A51E6004D302A /* EditTaskForm.swift */,
-				B47D1C452B88D26C005BD386 /* TaskRow.swift */,
 				B47D1C4D2B891D7E005BD386 /* AvailableUsers.swift */,
 				B43941932B8A809900A536EF /* TestsView.swift */,
 			);
