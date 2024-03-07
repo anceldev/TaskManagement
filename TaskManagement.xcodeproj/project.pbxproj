@@ -14,7 +14,6 @@
 		B43941942B8A809900A536EF /* TestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941932B8A809900A536EF /* TestsView.swift */; };
 		B43941972B8ABE1C00A536EF /* CheckBoxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */; };
 		B43941992B8AC31F00A536EF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941982B8AC31F00A536EF /* Extensions.swift */; };
-		B439419B2B8AC73C00A536EF /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439419A2B8AC73C00A536EF /* CustomPicker.swift */; };
 		B43941A62B8AD4B900A536EF /* WorkSansFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43941A52B8AD4B900A536EF /* WorkSansFont.swift */; };
 		B47D1C462B88D26C005BD386 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C452B88D26C005BD386 /* TaskRow.swift */; };
 		B47D1C482B88ECE0005BD386 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D1C472B88ECE0005BD386 /* User.swift */; };
@@ -53,7 +52,6 @@
 		B43941932B8A809900A536EF /* TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsView.swift; sourceTree = "<group>"; };
 		B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxToggleStyle.swift; sourceTree = "<group>"; };
 		B43941982B8AC31F00A536EF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		B439419A2B8AC73C00A536EF /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		B439419D2B8AD32E00A536EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B43941A52B8AD4B900A536EF /* WorkSansFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSansFont.swift; sourceTree = "<group>"; };
 		B47D1C452B88D26C005BD386 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
@@ -103,7 +101,7 @@
 				B4F748BF2B5B566500FFCF29 /* Colors.swift */,
 				B43941962B8ABE1C00A536EF /* CheckBoxToggleStyle.swift */,
 				B43941982B8AC31F00A536EF /* Extensions.swift */,
-				B439419A2B8AC73C00A536EF /* CustomPicker.swift */,
+				B42DA9A82B92898C0098D5AC /* CustomPickerOwn.swift */,
 				B43941A52B8AD4B900A536EF /* WorkSansFont.swift */,
 				B496D96C2B9204E00073848F /* ClashDisplayFont.swift */,
 				B40D8FE12B92331D00D6DF68 /* SearchBar.swift */,
@@ -205,7 +203,6 @@
 				B47D1C4D2B891D7E005BD386 /* AvailableUsers.swift */,
 				B43941932B8A809900A536EF /* TestsView.swift */,
 				B40D8FE32B923A9200D6DF68 /* Home.swift */,
-				B42DA9A82B92898C0098D5AC /* CustomPickerOwn.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				B49FE8042B5AABB50040247D /* MainView.swift in Sources */,
 				B47D1C462B88D26C005BD386 /* TaskRow.swift in Sources */,
 				B43941A62B8AD4B900A536EF /* WorkSansFont.swift in Sources */,
-				B439419B2B8AC73C00A536EF /* CustomPicker.swift in Sources */,
 				B49FE8222B5AEC9B0040247D /* TaskListingView.swift in Sources */,
 				B49FE8022B5AABB50040247D /* TaskManagementApp.swift in Sources */,
 				B43941942B8A809900A536EF /* TestsView.swift in Sources */,

@@ -8,6 +8,7 @@
 import Foundation
 
 enum Priority: String, Codable, CaseIterable, Identifiable{
+    case none = "None"
     case low = "Low"
     case normal = "Normal"
     case high = "High"
