@@ -12,6 +12,7 @@ struct MainView: View {
     
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Project.deadline, order: .forward) var projects: [Project]
+    
     @State private var path = [Project]()
     @State private var addNewProject = false
     @State private var searchText = ""

@@ -9,12 +9,15 @@ import SwiftUI
 
 struct CustomTextEditor: View {
     @Binding var text: String
+    @Binding var disabled: Bool
     let systemImage: String?
+    
     let image: Image?
     
-    init(text: Binding<String>, systemImage: String? = nil) {
+    init(text: Binding<String>, disabled: Binding<Bool>, systemImage: String? = nil) {
         UITextView.appearance().backgroundColor = .clear
-        _text = text
+        self._text = text
+        self._disabled = disabled
         self.systemImage = systemImage
         if let image = self.systemImage {
             self.image = Image(systemName: image)
@@ -33,8 +36,9 @@ struct CustomTextEditor: View {
             }
             TextEditor(text: $text)
                 .scrollContentBackground(.hidden)
+                .disabled(!self.disabled)
         }
-        .padding(15)
+        .padding(10)
         .frame(maxWidth: .infinity)
         .frame(height: 170)
         .clipShape(RoundedRectangle(cornerRadius: 11))
@@ -45,7 +49,11 @@ struct CustomTextEditor: View {
     }
 }
 //
-//#Preview {
-//    @State var text = ""
-//    return CustomTextEditor(text: $text, systemImage: "pencil")
-//}
+#Preview {
+    @State var text = ""
+    @State var disabled = false
+    return VStack {
+        CustomTextEditor(text: $text, disabled: $disabled, systemImage: "note.text")
+    }
+    .background(.tmBlack)
+}

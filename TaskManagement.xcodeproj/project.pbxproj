@@ -37,6 +37,7 @@
 		B49FE8172B5AB2230040247D /* Priority&Category&Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8162B5AB2230040247D /* Priority&Category&Value.swift */; };
 		B49FE8222B5AEC9B0040247D /* TaskListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8212B5AEC9B0040247D /* TaskListingView.swift */; };
 		B49FE8242B5AEE2F0040247D /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49FE8232B5AEE2F0040247D /* ProjectDetails.swift */; };
+		B4A13C352B9A8B4C00D8D695 /* CustomDatePickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A13C342B9A8B4C00D8D695 /* CustomDatePickerStyle.swift */; };
 		B4F57EE82B9272C600043EBC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F57EE72B9272C600043EBC /* CustomTextField.swift */; };
 		B4F57EEA2B927F7200043EBC /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F57EE92B927F7200043EBC /* CustomTextEditor.swift */; };
 		B4F748BB2B5B4B4400FFCF29 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F748BA2B5B4B4400FFCF29 /* DataController.swift */; };
@@ -77,6 +78,7 @@
 		B49FE8162B5AB2230040247D /* Priority&Category&Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Priority&Category&Value.swift"; sourceTree = "<group>"; };
 		B49FE8212B5AEC9B0040247D /* TaskListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListingView.swift; sourceTree = "<group>"; };
 		B49FE8232B5AEE2F0040247D /* ProjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
+		B4A13C342B9A8B4C00D8D695 /* CustomDatePickerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerStyle.swift; sourceTree = "<group>"; };
 		B4F57EE72B9272C600043EBC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B4F57EE92B927F7200043EBC /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
 		B4F748BA2B5B4B4400FFCF29 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				B40D8FE12B92331D00D6DF68 /* SearchBar.swift */,
 				B4F57EE72B9272C600043EBC /* CustomTextField.swift */,
 				B4F57EE92B927F7200043EBC /* CustomTextEditor.swift */,
+				B4A13C342B9A8B4C00D8D695 /* CustomDatePickerStyle.swift */,
 			);
 			path = AuxViews;
 			sourceTree = "<group>";
@@ -195,10 +198,10 @@
 			children = (
 				B43941952B8ABE0A00A536EF /* AuxViews */,
 				B49FE8032B5AABB50040247D /* MainView.swift */,
+				B42CEF072B5C808D009713C2 /* EditProject.swift */,
 				B47D1C452B88D26C005BD386 /* TaskRow.swift */,
 				B49FE8212B5AEC9B0040247D /* TaskListingView.swift */,
 				B49FE8232B5AEE2F0040247D /* ProjectDetails.swift */,
-				B42CEF072B5C808D009713C2 /* EditProject.swift */,
 				B4913B4D2B8A51E6004D302A /* EditTaskForm.swift */,
 				B47D1C4D2B891D7E005BD386 /* AvailableUsers.swift */,
 				B43941932B8A809900A536EF /* TestsView.swift */,
@@ -316,6 +319,7 @@
 				B47D1C4C2B890751005BD386 /* File.swift in Sources */,
 				B49FE8112B5AAC410040247D /* Taskp.swift in Sources */,
 				B4F57EEA2B927F7200043EBC /* CustomTextEditor.swift in Sources */,
+				B4A13C352B9A8B4C00D8D695 /* CustomDatePickerStyle.swift in Sources */,
 				B4F748BE2B5B505D00FFCF29 /* ColorTask.swift in Sources */,
 				B49FE8172B5AB2230040247D /* Priority&Category&Value.swift in Sources */,
 				B40D8FE42B923A9200D6DF68 /* Home.swift in Sources */,
