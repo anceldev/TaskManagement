@@ -45,19 +45,6 @@ struct EditProject: View {
                 VStack{
                     
                     CustomTextField(text: $editedProject.title, placeholder: "Title of project", systemImage: "pencil" , disabled: $editProject)
-//                    CustomTextField(text: $editedProject.proDescription, placeholder: "Description of project...", systemImage: "note.text", disabled: $editProject)
-//                    
-//                    TextEditor(text: $editedProject.proDescription)
-//                        .padding(10)
-//                        .foregroundStyle(editedProject.proDescription.isEmpty ? .textColor1 : .white)
-//                        .frame(maxWidth: .infinity)
-//                        .frame(height: 100)
-//                        .scrollContentBackground(.hidden)
-//                        .overlay {
-//                            RoundedRectangle(cornerRadius: 11)
-//                                .stroke(.gray3, lineWidth: 1)
-//                        }
-//                        .disabled(!editProject)
                     CustomTextEditor(text: $editedProject.proDescription, disabled: $editProject, systemImage: "note.text")
                     HStack{
                         DatePicker("Deadline",
@@ -71,9 +58,6 @@ struct EditProject: View {
                         Spacer()
                         CustomPicker(selection: $editedProject.priority, disabled: $editProject) {
                             Priority.allCases
-                        }
-                        .onChange(of: project.priority) {
-                            print(project.priority.rawValue)
                         }
 //                        .zIndex(1)
                     }

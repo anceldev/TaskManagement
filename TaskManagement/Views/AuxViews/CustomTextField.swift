@@ -15,7 +15,7 @@ struct CustomTextField: View {
     @Binding private var disabled: Bool
     
     init(text: Binding<String>, placeholder: String = "Text", systemImage: String? = nil, disabled: Binding<Bool>) {
-        _text = text
+        self._text = text
         self.placeholder = placeholder
         self.systemImage = systemImage
         if let image = systemImage {
@@ -23,7 +23,7 @@ struct CustomTextField: View {
         } else {
             _image = State(initialValue: nil)
         }
-        _disabled = disabled
+        self._disabled = disabled
     }
     
     var body: some View {
@@ -38,16 +38,16 @@ struct CustomTextField: View {
             }
             TextField(text: $text) {
                 Text(placeholder)
-                    .foregroundStyle(text.isEmpty ? .textColor1 : .white)
+                    .foregroundStyle(.textColor1)
+//                    .foregroundStyle(text.isEmpty ? .textColor1 : .white)
             }
+//            .foregroundStyle(self.text.isEmpty ? .textColor1 : .white)
+            .foregroundStyle(.white)
             .workSans(16, style: .regular)
-            .foregroundStyle(text.isEmpty ? .textColor1 : .white)
             .disabled(!self.disabled)
-//            .frame(width: .infinity)
             .padding(.leading, systemImage == nil ? 16 : 0)
             if disabled {
                 Button {
-                    print("Delete text")
                     self.text = ""
                 } label: {
                     Image (systemName: "xmark")
@@ -59,8 +59,6 @@ struct CustomTextField: View {
             }
         }
         .frame(height: 56)
-//        .background(.gray1)
-//        .foregroundStyle(.white)
         .clipShape(RoundedRectangle(cornerRadius: 11))
         .overlay {
             RoundedRectangle(cornerRadius: 11)
@@ -72,6 +70,8 @@ struct CustomTextField: View {
 #Preview {
     @State var text = ""
     @State var disabled = true
-    return CustomTextField(text: $text, placeholder: "Placeholder", systemImage: nil, disabled: $disabled)
-//        .background(.tmBlack)
+    return VStack {
+        CustomTextField(text: $text, placeholder: "Placeholder", systemImage: nil, disabled: $disabled)
+            .background(.tmBlack)
+    }
 }

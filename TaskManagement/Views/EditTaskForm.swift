@@ -90,7 +90,7 @@ struct EditTaskForm: View {
         
         print(project.title)
         
-        let newTask = Taskp(taskDescription: taskDescription, deadline: deadline, category: category, value: value)
+        let newTask = Taskp(taskDescription: taskDescription, deadline: deadline, category: category)
         project.tasks.append(newTask)
         taskDescription = ""
     }
