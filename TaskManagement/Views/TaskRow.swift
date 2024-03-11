@@ -101,6 +101,11 @@ struct TaskRow: View {
     }
     @ViewBuilder
     func ShortDetailsProject() -> some View {
+        let currentDate = Date()
+        let calendar =  Calendar.current
+        let currentYear = calendar.component(.year, from: currentDate)
+        let projectYear = calendar.component(.year, from: project.deadline!)
+        
         let progress = CGFloat(CGFloat(project.progress) / 100)
         let dot = Image(systemName: "circle.fill")
             .resizable()
@@ -109,9 +114,10 @@ struct TaskRow: View {
             .padding(.horizontal, 6)
 
         HStack(alignment: .center, spacing: 0) {
-            Text(project.deadline!, format: .dateTime.day().month())
+            Text(project.deadline!, format: currentYear == projectYear ? .dateTime.day().month() : .dateTime.month().year())
                 .foregroundStyle(.white)
                 .workSans(13, style: .medium)
+                .frame(maxWidth: .infinity)
             dot
             ProgressView(value: progress)
                 .progressViewStyle(.customProgressBar(project.isFavorite))

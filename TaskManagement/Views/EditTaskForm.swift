@@ -17,6 +17,7 @@ struct EditTaskForm: View {
     @State private var deadline = Date.now
     @State private var category = Category.all
     @State private var value = ValueTask.zero
+    @State private var disabled = true
     
     
     
@@ -27,76 +28,63 @@ struct EditTaskForm: View {
     }
     
     var body: some View {
-        NavigationStack{
-            VStack {
-                Spacer()
-                TextEditor(text: $taskDescription)
-                    .frame(maxWidth: .infinity, maxHeight: 100)
-                DatePicker("Expirte date", selection: $deadline, in: .now...)
-//                DatePicker("Expire date",
-//                           selection: Binding(
-//                            get: { deadline ?? Date()},
-//                            set: { deadline = $0 }),
-//                           in: .now...)
-                //, displayedComponents: )
-                HStack {
-                    Text("Category:")
+        VStack(spacing: 0) {
+//            NavigationStack{
+                VStack(alignment: .leading, spacing: 0){
+                    Text("Add\nTask")
+                        .foregroundStyle(.white)
+                        .clashDisplay(38, .medium)
+                        .padding(.top, 17)
+                        .padding(.bottom, 24)
+//                    TextEditor(text: $taskDescription)
+//                        .frame(maxWidth: .infinity, maxHeight: 100)
+                    CustomTextEditor(text: $taskDescription, disabled: $disabled, systemImage: "note.text")
+                    DatePicker("Expirte date", selection: $deadline, in: .now...)
+                        .tint(.primaryGreen)
+                    CustomPicker(selection: $category, disabled: $disabled) {
+                        Category.allCases
+                    }
+                    .tint(.primaryGreen)
                     Spacer()
-                    Picker("Category:", selection: $category) {
-                        ForEach(Category.allCases, id: \.self) { category in
-                            Text(category.rawValue)
-                                .tag(category)
-                        }
-                    }
-                }
-                HStack {
-                    Text("Value")
-                    Spacer()
-                    Picker("Value:", selection: $value) {
-                        ForEach(ValueTask.allCases, id:\.self) { value in
-                            Text("\(value.rawValue)")
-                                .tag(value)
-                        }
-                    }
-                    .pickerStyle(.wheel)
-                }
-                Spacer()
-                Button {
-                    print("Creating task")
-                    addTask()
-                } label: {
-                    HStack {
-                        Image(systemName: "square.and.arrow.up")
-                        Text("Create")
-                    }
-                }
-        
-            }
-            .padding(20)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        dismiss()
+                        print("Creating task")
+                        addTask()
                     } label: {
-                        Image(systemName: "chevron.backward")
-                        Text("Back")
+                        Text("Add")
+                    }
+                    .buttonStyle(.customButton())
+                    
+                }
+                .padding(20)
+                .background(.tmBlack)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "chevron.backward")
+                        }
+                        .buttonStyle(.customCircleButton(size: 44))
                     }
                 }
-            }
+//            }
         }
+        .background(.tmBlack)
     }
     private func addTask() {
         guard taskDescription.isEmpty == false else { return }
         
-        print(project.title)
+        project.tasks.append(Taskp(taskDescription: taskDescription, deadline: deadline, category: category))
         
-        let newTask = Taskp(taskDescription: taskDescription, deadline: deadline, category: category)
-        project.tasks.append(newTask)
         taskDescription = ""
+        deadline = Date()
+        category = .all
+        dismiss()
     }
 }
 
 #Preview {
     @State var previewProject = Project()
     return EditTaskForm(project: previewProject)
+        .preferredColorScheme(.dark)
 }

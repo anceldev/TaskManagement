@@ -39,42 +39,50 @@ struct MainView: View {
                         .offset(x: 55, y: -56)
                         .ignoresSafeArea(edges: .top)
                 }
-                
-                VStack(alignment: .leading, spacing: 0) {
+                VStack {
+                    VStack(alignment: .leading, spacing: 0) {
+                        
                     SearchBar(searchText: $searchText)
                         .padding(.vertical, 24)
                     Text("Show Results")
                         .clashDisplay(24, .medium)
                         .foregroundStyle(.white)
                         .padding(.bottom, 7)
-                    VStack {
-                        ForEach(searchResults) { project in
-                            HStack {
-                                TaskRow(project: project, path: $path)
-                            }
-                            .frame(maxWidth: .infinity)
-                            
-                        }
-                        .foregroundStyle(.white)
-                        .navigationDestination(for: Project.self) { project in
-                            EditProject(project: project)
-                                .navigationBarBackButtonHidden()
-                        }
                     }
-                    Spacer()
-
+                    .padding(.horizontal, 24)
+                ScrollView(.vertical) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        
+                        VStack {
+                            ForEach(searchResults) { project in
+                                HStack {
+                                    TaskRow(project: project, path: $path)
+                                }
+                                .frame(maxWidth: .infinity)
+                            }
+                            .foregroundStyle(.white)
+                            .navigationDestination(for: Project.self) { project in
+                                EditProject(project: project)
+                                    .navigationBarBackButtonHidden()
+                            }
+                        }
+                        Spacer()
+                        
+                    }
+                    .padding(.horizontal, 24)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .sheet(isPresented: $addNewProject, content: {
+                        Text("It's trying to add a new project")
+                    })
                 }
-                .padding(.horizontal, 24)
-                .navigationBarTitleDisplayMode(.inline)
-                .sheet(isPresented: $addNewProject, content: {
-                    Text("It's trying to add a new project")
-                })
+            }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: addTask, label: {
                         Image(systemName: "plus")
                     })
+                    .buttonStyle(.customCircleButton(size: 44))
                 }
                 ToolbarItem(placement: .principal) { Text("Projects")
                         .foregroundStyle(.white)

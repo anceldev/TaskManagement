@@ -37,7 +37,8 @@ struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Conte
                     Image(systemName: "star.circle")
                         .resizable()
                         .frame(width: 16, height: 16)
-                        .foregroundStyle(selection as! Priority == Priority.none ? .gray3 : .primaryGreen)
+//                        .foregroundStyle(selection as! Priority == Priority.none ? .gray3 : .primaryGreen)
+//                        .foregroundStyle(selection as! Category == Category.all ? .gray : .primaryGreen)
                     
                     Text(selection.id.capitalized)
                         .workSans(12, style: .medium)
@@ -120,6 +121,7 @@ struct CustomPicker<SelectionValue, Content>: View where SelectionValue == Conte
 //            .zIndex(1)
         }
         .foregroundStyle(.white)
+        .zIndex(1)
     }
 }
 

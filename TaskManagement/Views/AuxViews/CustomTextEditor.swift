@@ -27,20 +27,32 @@ struct CustomTextEditor: View {
     }
     
     var body: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .top, spacing: 0) {
             if let image = self.image {
                 image
                     .resizable()
                     .frame(width: 24, height: 24)
                     .foregroundStyle(.primaryGreen)
+                    .padding(.top, 5)
+                    .padding(.leading, 5)
             }
+            ZStack(alignment: .topLeading) {
+                if self.text.isEmpty {
+                    Text("Placeholder")
+                        .foregroundStyle(.gray3)
+                        .padding(.top, 10)
+                        .padding(.leading, 11)
+                }
+                
             TextEditor(text: $text)
                 .scrollContentBackground(.hidden)
                 .disabled(!self.disabled)
+                .padding(.leading, 10)
+            }
         }
         .padding(10)
         .frame(maxWidth: .infinity)
-        .frame(height: 170)
+        .frame(height: 140)
         .clipShape(RoundedRectangle(cornerRadius: 11))
         .overlay {
             RoundedRectangle(cornerRadius: 11)
@@ -51,8 +63,9 @@ struct CustomTextEditor: View {
 //
 #Preview {
     @State var text = ""
-    @State var disabled = false
+    @State var disabled = true
     return VStack {
+        CustomTextField(text: $text, systemImage: "note.text", disabled: $disabled)
         CustomTextEditor(text: $text, disabled: $disabled, systemImage: "note.text")
     }
     .background(.tmBlack)

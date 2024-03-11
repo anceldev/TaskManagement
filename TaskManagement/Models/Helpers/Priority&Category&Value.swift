@@ -14,11 +14,12 @@ enum Priority: String, Codable, CaseIterable, Identifiable{
     case high = "High"
     var id: String { self.rawValue }
 }
-enum Category: String, Codable, CaseIterable {
+enum Category: String, Codable, CaseIterable, Identifiable {
     case all = "All"
-    case cat1 = "Category 1"
-    case cat2 = "Category 2"
-    case cat3 = "Category 3"
+    case study = "Study"
+    case hobbie = "Hobbie"
+    case job = "Job"
+    var id: String { self.rawValue }
 }
 enum ValueTask: Int, Codable, CaseIterable {
     case zero = 0

@@ -37,15 +37,15 @@ struct EditProject: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                Text(project.title.isEmpty ? "Create\nproject" : "Edit \nproject")
+        VStack(alignment: .leading, spacing: 0) {
+            Text(project.title.isEmpty ? "Create\nproject" : "Edit \nproject").animation(.easeIn)
                     .foregroundStyle(.white)
                     .clashDisplay(38, .medium)
                     .padding(.top, 17)
+                    .padding(.bottom, 24)
                 VStack{
-                    
                     CustomTextField(text: $editedProject.title, placeholder: "Title of project", systemImage: "pencil" , disabled: $editProject)
-                    CustomTextEditor(text: $editedProject.proDescription, disabled: $editProject, systemImage: "note.text")
+                                        CustomTextEditor(text: $editedProject.proDescription, disabled: $editProject, systemImage: "note.text")
                     HStack{
                         DatePicker("Deadline",
                                    selection: Binding(
@@ -59,38 +59,42 @@ struct EditProject: View {
                         CustomPicker(selection: $editedProject.priority, disabled: $editProject) {
                             Priority.allCases
                         }
-//                        .zIndex(1)
+                        //                        .zIndex(1)
                     }
-//                    .frame(width: .infinity)
+                    //                    .frame(width: .infinity)
                     ColorPicker("Select a color", selection: $selectedColor)
                         .onChange(of: selectedColor) {
                             editedProject.colorHex = selectedColor.toHex()
                         }
                         .disabled(!editProject)
                         .zIndex(-1)
-                    VStack {
-                        ForEach(project.tasks) { step in
-                            VStack {
-                                Text(step.taskDescription)
-                                HStack {
-                                    Text("Completed")
-                                    Spacer()
-                                    Toggle("Completed",
-                                           isOn: Binding(
-                                            get: { step.completed },
-                                            set: { step.completed = $0 }))
-                                    .toggleStyle(.checkboxStyle)
+                    ScrollView(.vertical) {
+                        VStack {
+                            ForEach(project.tasks) { step in
+                                VStack {
+                                    Text(step.taskDescription)
+                                    HStack {
+                                        Text("Completed")
+                                        Spacer()
+                                        Toggle("Completed",
+                                               isOn: Binding(
+                                                get: { step.completed },
+                                                set: { step.completed = $0 }))
+                                        .toggleStyle(.checkboxStyle)
+                                    }
                                 }
                             }
                         }
                     }
+                    Spacer()
                     Button("Delete", role: .destructive) {
                         showConfirmationDialog.toggle()
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.customButton(bg: .subColor3, text: .white))
                 }
                 Spacer()
             }
+            .frame(maxHeight: .infinity)
             .padding(.horizontal, 24)
             .background(.gray1)
             .confirmationDialog("You want to delete the project?", isPresented: $showConfirmationDialog, titleVisibility: .visible, actions: {
@@ -125,7 +129,6 @@ struct EditProject: View {
                         }
                     } label: {
                         Image(systemName: "chevron.backward")
-                            .foregroundStyle(.white)
                     }
                     .buttonStyle(.customCircleButton(size: 44))
                 }
@@ -137,6 +140,7 @@ struct EditProject: View {
                         Label("Edit project", systemImage: editProject ? "opticaldiscdrive" : "pencil")
                             .labelStyle(.iconOnly)
                     }
+                    .buttonStyle(.customCircleButton(size: 44))
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     if editProject {
@@ -145,9 +149,9 @@ struct EditProject: View {
                                 print("Undo")
                                 copyAttributes(from: project, to: editedProject)
                             } label: {
-                                Label("Undo", systemImage: "arrow.uturn.backward.circle")
-                                    .labelStyle(.iconOnly)
+                                Image(systemName: "arrow.uturn.backward.circle")
                             }
+                            .buttonStyle(.customCircleButton(size: 44))
                         }
                     }
                 }
@@ -158,11 +162,13 @@ struct EditProject: View {
                         Label("Add", systemImage: "plus")
                             .labelStyle(.iconOnly)
                     }
+                    .buttonStyle(.customCircleButton(size: 44))
                 }
             }
             .onAppear {
                 modelContext.undoManager = UndoManager()
             }
+            Spacer()
         }
     }
     private func copyAttributes(from origin: Project, to destiny: Project){

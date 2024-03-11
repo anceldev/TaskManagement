@@ -71,7 +71,7 @@ struct CustomTextField: View {
     @State var text = ""
     @State var disabled = true
     return VStack {
-        CustomTextField(text: $text, placeholder: "Placeholder", systemImage: nil, disabled: $disabled)
+        CustomTextField(text: $text, placeholder: "Placeholder", systemImage: "pencil", disabled: $disabled)
             .background(.tmBlack)
     }
 }
